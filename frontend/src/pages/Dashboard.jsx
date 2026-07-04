@@ -10,6 +10,44 @@ import {
   MdAttachMoney,
   MdTask,
 } from "react-icons/md";
+const recentLeads = [
+  {
+    id: 1,
+    name: "Rahul Sharma",
+    email: "rahul@gmail.com",
+    phone: "9876543210",
+    value: "₹45,000",
+    status: "New",
+    date: "Today",
+  },
+  {
+    id: 2,
+    name: "Mohit Kumar",
+    email: "mohit@gmail.com",
+    phone: "9123456780",
+    value: "₹72,000",
+    status: "Follow-up",
+    date: "Yesterday",
+  },
+  {
+    id: 3,
+    name: "Aman Singh",
+    email: "aman@gmail.com",
+    phone: "9988776655",
+    value: "₹30,000",
+    status: "Qualified",
+    date: "2 Days Ago",
+  },
+  {
+    id: 4,
+    name: "Vivek Sharma",
+    email: "vivek@gmail.com",
+    phone: "9012345678",
+    value: "₹90,000",
+    status: "Closed",
+    date: "Last Week",
+  },
+];
 
 function Dashboard() {
   return (
@@ -65,42 +103,55 @@ function Dashboard() {
 
           <table>
             <thead>
-              <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
+  <tr>
+    <th>Customer</th>
+    <th>Phone</th>
+    <th>Deal Value</th>
+    <th>Status</th>
+    <th>Last Contact</th>
+    <th>Action</th>
+  </tr>
+</thead>
 
             <tbody>
-              <tr>
-                <td>Rahul Sharma</td>
-                <td>9876543210</td>
-                <td>New</td>
-                <td>
-                  <button>View</button>
-                </td>
-              </tr>
+  {recentLeads.map((lead) => (
+    <tr key={lead.id}>
+      <td>
+        <div className="lead-user">
+          <div className="avatar">
+            {lead.name.charAt(0)}
+          </div>
 
-              <tr>
-                <td>Mohit Kumar</td>
-                <td>9123456780</td>
-                <td>Follow-up</td>
-                <td>
-                  <button>Edit</button>
-                </td>
-              </tr>
+          <div>
+            <strong>{lead.name}</strong>
+            <br />
+            <small>{lead.email}</small>
+          </div>
+        </div>
+      </td>
 
-              <tr>
-                <td>Aman Singh</td>
-                <td>9988776655</td>
-                <td>Closed</td>
-                <td>
-                  <button>Details</button>
-                </td>
-              </tr>
-            </tbody>
+      <td>{lead.phone}</td>
+
+      <td>{lead.value}</td>
+
+      <td>
+        <span
+          className={`status ${lead.status
+            .toLowerCase()
+            .replace("-", "")}`}
+        >
+          {lead.status}
+        </span>
+      </td>
+
+      <td>{lead.date}</td>
+
+      <td>
+        <button>View</button>
+      </td>
+    </tr>
+  ))}
+</tbody>
           </table>
         </div>
 

@@ -1,6 +1,24 @@
-.lead-chart{
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+.lead-chart {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.lead-header {
+  margin-bottom: 20px;
+}
+
+.lead-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.lead-header p {
+  margin-top: 6px;
+  color: #64748b;
+}
+
+.recharts-legend-wrapper {
+  margin-top: 10px;
 }

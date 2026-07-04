@@ -23,25 +23,44 @@ const data = [
 function RevenueChart() {
   return (
     <div className="revenue-chart">
-      <div className="chart-header">
-        <h2>Revenue Analytics</h2>
-        <p>Last 7 Months</p>
+
+      <div className="chart-top">
+        <div>
+          <h2>Revenue Analytics</h2>
+          <p>Monthly Revenue Performance</p>
+        </div>
+
+        <button className="chart-btn">
+          Monthly
+        </button>
       </div>
 
-      <ResponsiveContainer width="100%" height={320}>
+      <div className="revenue-info">
+        <h1>₹8,10,000</h1>
+        <span>↑ 18.4% this month</span>
+      </div>
+
+      <ResponsiveContainer width="100%" height={300}>
         <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
+          <CartesianGrid stroke="#e5e7eb" strokeDasharray="4 4" />
+
           <XAxis dataKey="month" />
+
           <YAxis />
+
           <Tooltip />
+
           <Line
             type="monotone"
             dataKey="revenue"
             stroke="#2563eb"
             strokeWidth={4}
+            dot={{ r: 5 }}
+            activeDot={{ r: 8 }}
           />
         </LineChart>
       </ResponsiveContainer>
+
     </div>
   );
 }

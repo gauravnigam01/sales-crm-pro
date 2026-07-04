@@ -5,6 +5,7 @@ import {
   Pie,
   Cell,
   Tooltip,
+  Legend,
 } from "recharts";
 
 const data = [
@@ -24,14 +25,21 @@ const COLORS = [
 function LeadSourceChart() {
   return (
     <div className="lead-chart">
-      <h2>Lead Sources</h2>
+      <div className="lead-header">
+        <div>
+          <h2>Lead Sources</h2>
+          <p>Traffic Distribution</p>
+        </div>
+      </div>
 
-      <ResponsiveContainer width="100%" height={280}>
+      <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie
             data={data}
             dataKey="value"
-            outerRadius={90}
+            innerRadius={60}
+            outerRadius={95}
+            paddingAngle={4}
             label
           >
             {data.map((entry, index) => (
@@ -43,6 +51,7 @@ function LeadSourceChart() {
           </Pie>
 
           <Tooltip />
+          <Legend verticalAlign="bottom" height={36} />
         </PieChart>
       </ResponsiveContainer>
     </div>

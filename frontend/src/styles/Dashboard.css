@@ -153,3 +153,80 @@ grid-template-columns:1fr;
 }
 
 }
+/* ===== Recent Leads Table ===== */
+
+.lead-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.lead-user strong {
+  font-size: 15px;
+}
+
+.lead-user small {
+  color: #64748b;
+}
+
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status.new {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.status.followup {
+  background: #fef3c7;
+  color: #ca8a04;
+}
+
+.status.qualified {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.status.closed {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.recent-leads tbody tr {
+  transition: 0.3s;
+}
+
+.recent-leads tbody tr:hover {
+  background: #f8fafc;
+}
+
+.recent-leads button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.recent-leads button:hover {
+  background: #1d4ed8;
+}
