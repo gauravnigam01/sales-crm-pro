@@ -1,3 +1,6 @@
+import SalesFunnel from "../components/SalesFunnel";
+import UpcomingMeetings from "../components/UpcomingMeetings";
+import TopAgents from "../components/TopAgents";
 import ActivityPanel from "../components/ActivityPanel";
 import LeadSourceChart from "../components/LeadSourceChart";
 import RevenueChart from "../components/RevenueChart";
@@ -157,6 +160,9 @@ function Dashboard() {
 
         {/* Activity Panel */}
         <ActivityPanel />
+        <TopAgents />
+        <UpcomingMeetings />
+        <SalesFunnel />
       </div>
     </div>
   );

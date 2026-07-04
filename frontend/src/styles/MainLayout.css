@@ -1,0 +1,31 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body,
+#root{
+    width:100%;
+    min-height:100vh;
+    background:#f4f7fc;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.layout{
+    display:flex;
+    width:100%;
+    min-height:100vh;
+}
+
+.main-content{
+    flex:1;
+    margin-left:260px;
+    min-height:100vh;
+    background:#f4f7fc;
+}
+
+.dashboard-wrapper{
+    padding:25px;
+}

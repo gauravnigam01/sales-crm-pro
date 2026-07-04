@@ -1,0 +1,49 @@
+.top-agents {
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  margin-top: 30px;
+}
+
+.top-agents h2 {
+  margin-bottom: 20px;
+}
+
+.agent-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.agent-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.agent-info {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.agent-info h4 {
+  margin: 0;
+}
+
+.agent-info p {
+  margin: 5px 0 0;
+  color: gray;
+}
+
+.performance {
+  color: #10b981;
+  font-weight: bold;
+}

@@ -1,0 +1,42 @@
+.meetings {
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  margin-top: 30px;
+}
+
+.meetings h2 {
+  margin-bottom: 20px;
+}
+
+.meeting-card {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.meeting-card:last-child {
+  border-bottom: none;
+}
+
+.meeting-time {
+  background: #2563eb;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  min-width: 90px;
+  text-align: center;
+}
+
+.meeting-info h4 {
+  margin: 0;
+}
+
+.meeting-info p {
+  margin: 5px 0 0;
+  color: #64748b;
+}

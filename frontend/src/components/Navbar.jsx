@@ -1,41 +1,47 @@
 import "../styles/Navbar.css";
 import {
   MdSearch,
-  MdNotifications,
-  MdAdd,
-  MdEmail,
+  MdNotificationsNone,
+  MdKeyboardArrowDown,
+  MdFileDownload,
 } from "react-icons/md";
 
 function Navbar() {
   return (
-    <div className="navbar">
+    <header className="navbar">
       <div className="navbar-left">
-        <h2>Dashboard</h2>
-        <p>Welcome back, Gaurav 👋</p>
-      </div>
-
-      <div className="navbar-center">
-        <MdSearch className="search-icon" />
-        <input type="text" placeholder="Search..." />
+        <div className="search-box">
+          <MdSearch />
+          <input type="text" placeholder="Search leads, clients..." />
+        </div>
       </div>
 
       <div className="navbar-right">
-        <button className="add-btn">
-          <MdAdd /> Add New
+        <button className="filter-btn">
+          Last 30 Days
+          <MdKeyboardArrowDown />
         </button>
 
-        <MdEmail className="nav-icon" />
-        <MdNotifications className="nav-icon" />
+        <button className="export-btn">
+          <MdFileDownload />
+          Export
+        </button>
+
+        <div className="notification">
+          <MdNotificationsNone />
+          <span className="badge">3</span>
+        </div>
 
         <div className="profile">
           <div className="avatar">G</div>
+
           <div>
             <h4>Gaurav</h4>
-            <p>Admin</p>
+            <p>Administrator</p>
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 
