@@ -1,0 +1,20 @@
+.revenue-chart {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.chart-header h2 {
+  margin: 0;
+}
+
+.chart-header p {
+  color: gray;
+}
