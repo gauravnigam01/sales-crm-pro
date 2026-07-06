@@ -10,10 +10,15 @@ const stages = [
 function SalesFunnel() {
   return (
     <div className="sales-funnel">
-      <h2>Sales Funnel</h2>
+
+      <div className="funnel-header">
+        <h2>Sales Funnel</h2>
+        <span>This Month</span>
+      </div>
 
       {stages.map((stage) => (
         <div className="funnel-item" key={stage.name}>
+
           <div className="funnel-top">
             <span>{stage.name}</span>
             <span>{stage.count}</span>
@@ -28,8 +33,10 @@ function SalesFunnel() {
               }}
             ></div>
           </div>
+
         </div>
       ))}
+
     </div>
   );
 }

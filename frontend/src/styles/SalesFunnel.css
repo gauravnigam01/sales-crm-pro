@@ -1,35 +1,56 @@
-.sales-funnel {
-  background: white;
-  padding: 20px;
-  border-radius: 18px;
-  box-shadow: 0 10px 25px rgba(0,0,0,.08);
-  margin-top: 30px;
+.sales-funnel{
+    background:#fff;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 8px 25px rgba(15,23,42,.06);
+    border:1px solid #eef2f7;
 }
 
-.sales-funnel h2 {
-  margin-bottom: 20px;
+.funnel-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:22px;
 }
 
-.funnel-item {
-  margin-bottom: 18px;
+.funnel-header h2{
+    margin:0;
+    font-size:20px;
+    color:#0f172a;
 }
 
-.funnel-top {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-  font-weight: 600;
+.funnel-header span{
+    background:#eff6ff;
+    color:#2563eb;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
 }
 
-.progress {
-  height: 10px;
-  background: #e5e7eb;
-  border-radius: 20px;
-  overflow: hidden;
+.funnel-item{
+    margin-bottom:18px;
 }
 
-.progress-fill {
-  height: 100%;
-  border-radius: 20px;
-  transition: width .5s;
+.funnel-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+    color:#334155;
+}
+
+.progress{
+    width:100%;
+    height:10px;
+    background:#e2e8f0;
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    border-radius:999px;
+    transition:width .5s ease;
 }

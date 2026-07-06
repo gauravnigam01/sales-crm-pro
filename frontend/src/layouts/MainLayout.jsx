@@ -1,6 +1,7 @@
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
-import Dashboard from "../pages/Dashboard";
+import { Outlet } from "react-router-dom";
+
 import "../styles/MainLayout.css";
 
 function MainLayout() {
@@ -12,7 +13,7 @@ function MainLayout() {
         <Navbar />
 
         <div className="dashboard-wrapper">
-          <Dashboard />
+          <Outlet />
         </div>
       </main>
     </div>

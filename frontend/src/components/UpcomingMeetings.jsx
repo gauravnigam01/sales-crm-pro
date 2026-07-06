@@ -24,7 +24,10 @@ const meetings = [
 function UpcomingMeetings() {
   return (
     <div className="meetings">
-      <h2>Upcoming Meetings</h2>
+      <div className="meeting-header">
+        <h2>Upcoming Meetings</h2>
+        <span>Today</span>
+      </div>
 
       {meetings.map((meeting) => (
         <div className="meeting-card" key={meeting.id}>

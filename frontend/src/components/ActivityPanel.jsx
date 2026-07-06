@@ -1,33 +1,46 @@
 import "../styles/ActivityPanel.css";
 
+const activities = [
+  {
+    title: "New Lead Added",
+    desc: "Rahul Sharma • 2 min ago",
+    color: "blue",
+  },
+  {
+    title: "Meeting Scheduled",
+    desc: "Tomorrow • 11:00 AM",
+    color: "green",
+  },
+  {
+    title: "Deal Closed",
+    desc: "₹85,000 Revenue",
+    color: "orange",
+  },
+  {
+    title: "Payment Received",
+    desc: "₹45,000 • Today",
+    color: "purple",
+  },
+];
+
 function ActivityPanel() {
   return (
     <div className="activity-panel">
-      <h2>Recent Activity</h2>
-
-      <div className="activity-item">
-        <span className="dot blue"></span>
-        <div>
-          <h4>New Lead Added</h4>
-          <p>Rahul Sharma • 2 min ago</p>
-        </div>
+      <div className="activity-header">
+        <h2>Recent Activity</h2>
+        <span>Live</span>
       </div>
 
-      <div className="activity-item">
-        <span className="dot green"></span>
-        <div>
-          <h4>Meeting Scheduled</h4>
-          <p>Tomorrow • 11:00 AM</p>
-        </div>
-      </div>
+      {activities.map((item, index) => (
+        <div className="activity-item" key={index}>
+          <span className={`dot ${item.color}`}></span>
 
-      <div className="activity-item">
-        <span className="dot orange"></span>
-        <div>
-          <h4>Deal Closed</h4>
-          <p>₹85,000 Revenue</p>
+          <div className="activity-content">
+            <h4>{item.title}</h4>
+            <p>{item.desc}</p>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 }

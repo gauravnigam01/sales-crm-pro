@@ -1,31 +1,22 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,
-body,
-#root{
-    width:100%;
-    min-height:100vh;
-    background:#f4f7fc;
-    font-family:Arial,Helvetica,sans-serif;
+  box-sizing:border-box;
 }
 
 .layout{
-    display:flex;
-    width:100%;
-    min-height:100vh;
+  display:flex;
+  width:100%;
+  min-height:100vh;
 }
 
 .main-content{
-    flex:1;
-    margin-left:260px;
-    min-height:100vh;
-    background:#f4f7fc;
+  margin-left:260px;
+  width:calc(100% - 260px);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
 .dashboard-wrapper{
-    padding:25px;
+  width:100%;
+  padding:25px;
 }

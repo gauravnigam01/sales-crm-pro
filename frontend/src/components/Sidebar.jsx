@@ -3,7 +3,6 @@ import {
   MdPeople,
   MdBusinessCenter,
   MdAssignment,
-  MdSecurity,
   MdAttachMoney,
   MdDescription,
   MdCalendarMonth,
@@ -11,39 +10,117 @@ import {
   MdBarChart,
   MdSettings,
 } from "react-icons/md";
+
+import { NavLink } from "react-router-dom";
+
 import "../styles/Sidebar.css";
+
 function Sidebar() {
   return (
     <div className="sidebar">
-     <div className="sidebar-header">
-  <div className="logo">SC</div>
-  <div>
-    <h2>Sales CRM</h2>
-    <p>Admin Panel</p>
-  </div>
-</div>
+      <div className="sidebar-header">
+        <div className="logo">SC</div>
+
+        <div>
+          <h2>Sales CRM</h2>
+          <p>Admin Panel</p>
+        </div>
+      </div>
 
       <hr />
-<ul>
-  <p className="menu-title">MAIN</p>
-  <li className="active"><MdDashboard /> Dashboard</li>
-  <li><MdBarChart /> Analytics</li>
 
-  <p className="menu-title">CRM</p>
-  <li><MdPeople /> Leads</li>
-  <li><MdBusinessCenter /> Customers</li>
-  <li><MdAttachMoney /> Deals</li>
-  <li><MdAssignment /> Pipeline</li>
+      <p className="menu-title">MAIN</p>
 
-  <p className="menu-title">PRODUCTIVITY</p>
-  <li><MdCalendarMonth /> Calendar</li>
-  <li><MdTask /> Tasks</li>
-  <li><MdDescription /> Documents</li>
+      <ul>
+        <li>
+          <NavLink to="/dashboard">
+            <MdDashboard />
+            Dashboard
+          </NavLink>
+        </li>
 
-  <p className="menu-title">SYSTEM</p>
-  <li><MdBarChart /> Reports</li>
-  <li><MdSettings /> Settings</li>
-</ul>
+        <li>
+          <NavLink to="/analytics">
+            <MdBarChart />
+            Analytics
+          </NavLink>
+        </li>
+      </ul>
+
+      <p className="menu-title">CRM</p>
+
+      <ul>
+        <li>
+          <NavLink to="/leads">
+            <MdPeople />
+            Leads
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/customers">
+            <MdBusinessCenter />
+            Customers
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/deals">
+            <MdAttachMoney />
+            Deals
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/pipeline">
+            <MdAssignment />
+            Pipeline
+          </NavLink>
+        </li>
+      </ul>
+
+      <p className="menu-title">PRODUCTIVITY</p>
+
+      <ul>
+        <li>
+          <NavLink to="/calendar">
+            <MdCalendarMonth />
+            Calendar
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/tasks">
+            <MdTask />
+            Tasks
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/documents">
+            <MdDescription />
+            Documents
+          </NavLink>
+        </li>
+      </ul>
+
+      <p className="menu-title">SYSTEM</p>
+
+      <ul>
+        <li>
+          <NavLink to="/reports">
+            <MdBarChart />
+            Reports
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/settings">
+            <MdSettings />
+            Settings
+          </NavLink>
+        </li>
+      </ul>
     </div>
   );
 }

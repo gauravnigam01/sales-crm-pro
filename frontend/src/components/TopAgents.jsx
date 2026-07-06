@@ -24,10 +24,15 @@ const agents = [
 function TopAgents() {
   return (
     <div className="top-agents">
-      <h2>Top Performing Agents</h2>
+
+      <div className="agents-header">
+        <h2>Top Agents</h2>
+        <span>This Month</span>
+      </div>
 
       {agents.map((agent) => (
         <div className="agent-card" key={agent.id}>
+
           <div className="agent-avatar">
             {agent.name.charAt(0)}
           </div>
@@ -40,8 +45,10 @@ function TopAgents() {
           <span className="performance">
             {agent.performance}
           </span>
+
         </div>
       ))}
+
     </div>
   );
 }
