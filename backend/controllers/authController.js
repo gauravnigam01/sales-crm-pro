@@ -94,12 +94,25 @@ export const login = async (req, res) => {
     user.lastLogin = new Date();
     await user.save();
 
-    res.status(200).json({
-      success: true,
-      message: "Login Successful",
-      token,
-      user,
-    });
+   res.status(200).json({
+  success: true,
+  message: "Login Successful",
+  token,
+  user: {
+    _id: user._id,
+    fullName: user.fullName,
+    email: user.email,
+    phone: user.phone,
+    role: user.role,
+    status: user.status,
+    profileImage: user.profileImage,
+    assignedLeads: user.assignedLeads,
+    totalCalls: user.totalCalls,
+    totalSales: user.totalSales,
+    lastLogin: user.lastLogin,
+    createdAt: user.createdAt,
+  },
+});
   } catch (error) {
     res.status(500).json({
       success: false,

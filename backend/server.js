@@ -1,3 +1,4 @@
+import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import express from "express";
 import dotenv from "dotenv";
@@ -34,6 +35,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);// Lead Routes
 app.use("/api/leads", leadRoutes);
+app.use("/api/users", userRoutes);
 
 // =======================
 // Server
