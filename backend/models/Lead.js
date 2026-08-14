@@ -38,6 +38,11 @@ const leadSchema = new mongoose.Schema(
       default: "Manual",
     },
 
+    metaLeadgenId: {
+      type: String,
+      default: "",
+    },
+
     status: {
       type: String,
       enum: [
@@ -59,9 +64,21 @@ const leadSchema = new mongoose.Schema(
       default: "Medium",
     },
 
+    temperature: {
+      type: String,
+      enum: ["Cold", "Warm", "Hot"],
+      default: "Warm",
+    },
+
     leadValue: {
       type: Number,
       default: 0,
+    },
+
+    region: {
+      type: String,
+      enum: ["North", "South", "East", "West", "Central", "Not Specified"],
+      default: "Not Specified",
     },
 
     assignedTo: {
@@ -83,7 +100,25 @@ const leadSchema = new mongoose.Schema(
     nextCallDate: {
       type: Date,
     },
+timeline: [
+  {
+    action: {
+      type: String,
+      required: true,
+    },
 
+    performedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+  },
+],
+   
     notes: [
       {
         text: String,
@@ -124,6 +159,9 @@ const leadSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+leadSchema.index({ phone: 1 });
+leadSchema.index({ assignedTo: 1 });
 
 const Lead = mongoose.model("Lead", leadSchema);
 

@@ -1,30 +1,75 @@
 .navbar{
     width:100%;
-    height:80px;
+    height:64px;
     background:#fff;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0 25px;
+    padding:0 20px;
     border-bottom:1px solid #e2e8f0;
     box-sizing:border-box;
+    gap:10px;
 }
 
 .navbar-left{
     flex:1;
+    min-width:0;
+}
+
+.hamburger-btn{
+    display:flex;
+    width:36px;
+    height:36px;
+    border-radius:10px;
+    background:#f1f5f9;
+    border:none;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    color:#334155;
+    cursor:pointer;
+    flex-shrink:0;
+    transition:.2s;
+}
+
+.hamburger-btn:hover{
+    background:#e2e8f0;
+}
+
+.theme-toggle-btn{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:#f1f5f9;
+    border:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
+    color:#334155;
+    cursor:pointer;
+    transition:.3s;
+    flex-shrink:0;
+}
+
+.theme-toggle-btn:hover{
+    background:#2563eb;
+    color:#fff;
+    transform:rotate(20deg);
 }
 
 .search-box{
-    max-width:500px;
+    max-width:420px;
     width:100%;
-    height:46px;
+    height:38px;
     display:flex;
     align-items:center;
     gap:10px;
     background:#f8fafc;
     border:1px solid #e2e8f0;
-    border-radius:12px;
-    padding:0 15px;
+    border-radius:10px;
+    padding:0 14px;
+    font-size:13px;
 }
 
 .search-box input{
@@ -32,12 +77,13 @@
     border:none;
     outline:none;
     background:transparent;
+    font-size:13px;
 }
 
 .navbar-right{
     display:flex;
     align-items:center;
-    gap:16px;
+    gap:12px;
     flex-shrink:0;
 }
 
@@ -45,11 +91,12 @@
 .export-btn{
     display:flex;
     align-items:center;
-    gap:8px;
-    padding:10px 18px;
+    gap:6px;
+    padding:8px 14px;
     border:none;
-    border-radius:10px;
+    border-radius:9px;
     cursor:pointer;
+    font-size:13px;
 }
 
 .filter-btn{
@@ -63,8 +110,8 @@
 
 .notification{
     position:relative;
-    width:44px;
-    height:44px;
+    width:36px;
+    height:36px;
     border-radius:50%;
     background:#f1f5f9;
     display:flex;
@@ -87,29 +134,131 @@
     font-size:11px;
 }
 
+.profile-wrapper{
+    position:relative;
+}
+
 .profile{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
+    cursor:pointer;
+    padding:5px 8px;
+    border-radius:10px;
+    transition:.25s;
+}
+
+.profile:hover{
+    background:#f1f5f9;
+}
+
+.profile-dropdown{
+    position:absolute;
+    top:64px;
+    right:0;
+    width:200px;
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 20px 45px rgba(15,23,42,.18);
+    z-index:999;
+    display:flex;
+    flex-direction:column;
+    padding:8px;
+    animation:dropProfile .2s ease;
+}
+
+@keyframes dropProfile{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.profile-dropdown button{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 14px;
+    border:none;
+    background:none;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:600;
+    color:#334155;
+    cursor:pointer;
+    transition:.2s;
+    text-align:left;
+}
+
+.profile-dropdown button:hover{
+    background:#f1f5f9;
+}
+
+.profile-dropdown button:last-child{
+    color:#dc2626;
+}
+
+.profile-dropdown button:last-child:hover{
+    background:#fee2e2;
 }
 
 .profile .avatar{
-    width:46px;
-    height:46px;
+    width:36px;
+    height:36px;
     border-radius:50%;
     background:#2563eb;
     color:#fff;
     display:flex;
     justify-content:center;
     align-items:center;
+    font-size:14px;
 }
 
 .profile h4{
     margin:0;
+    font-size:13px;
 }
 
 .profile p{
     margin:0;
-    font-size:12px;
+    font-size:11px;
     color:#64748b;
+}
+
+@media(max-width:900px){
+
+.search-box{
+    display:none;
+}
+
+.export-btn{
+    padding:8px 10px;
+}
+
+.profile div h4,
+.profile div p{
+    display:none;
+}
+
+}
+
+@media(max-width:600px){
+
+.filter-btn{
+    display:none;
+}
+
+.export-btn{
+    padding:8px;
+}
+
+.navbar{
+    padding:0 12px;
+}
+
 }

@@ -1,7 +1,7 @@
 .lead-chart{
     background:#fff;
-    border-radius:18px;
-    padding:24px;
+    border-radius:14px;
+    padding:16px;
     box-shadow:0 8px 25px rgba(15,23,42,.06);
     border:1px solid #eef2f7;
     height:100%;
@@ -11,19 +11,19 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:20px;
+    margin-bottom:14px;
 }
 
 .lead-header h2{
     margin:0;
-    font-size:22px;
+    font-size:18px;
     color:#0f172a;
 }
 
 .lead-header p{
-    margin-top:5px;
+    margin-top:4px;
     color:#64748b;
-    font-size:14px;
+    font-size:13px;
 }
 
 .recharts-legend-wrapper{
@@ -31,8 +31,8 @@
 }
 
 .recharts-default-legend li{
-    margin-right:15px !important;
-    font-size:13px;
+    margin-right:12px !important;
+    font-size:12px;
     font-weight:600;
 }
 

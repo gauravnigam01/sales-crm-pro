@@ -38,9 +38,68 @@ const userSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      enum: ["active", "inactive"],
+      enum: ["active", "inactive", "pending"],
       default: "active",
     },
+    manager: {
+  type: mongoose.Schema.Types.ObjectId,
+  ref: "User",
+  default: null,
+},
+
+    teamId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Team",
+      default: null,
+    },
+
+team: [
+  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+],
+
+permissions: {
+  // Leads
+  viewLeads: { type: Boolean, default: true },
+  createLead: { type: Boolean, default: true },
+  editLead: { type: Boolean, default: true },
+  deleteLead: { type: Boolean, default: false },
+
+  // Customers
+  viewCustomers: { type: Boolean, default: true },
+  createCustomer: { type: Boolean, default: true },
+  editCustomer: { type: Boolean, default: true },
+  deleteCustomer: { type: Boolean, default: false },
+
+  // Deals
+  viewDeals: { type: Boolean, default: true },
+  createDeal: { type: Boolean, default: true },
+  editDeal: { type: Boolean, default: true },
+  deleteDeal: { type: Boolean, default: false },
+
+  // Tasks
+  viewTasks: { type: Boolean, default: true },
+  createTask: { type: Boolean, default: true },
+  editTask: { type: Boolean, default: true },
+  deleteTask: { type: Boolean, default: false },
+
+  // Documents
+  viewDocuments: { type: Boolean, default: true },
+  uploadDocument: { type: Boolean, default: true },
+  deleteDocument: { type: Boolean, default: false },
+
+  // Calendar
+  viewCalendar: { type: Boolean, default: true },
+  manageCalendar: { type: Boolean, default: true },
+
+  // Reports
+  viewReports: { type: Boolean, default: false },
+
+  // Users
+  manageUsers: { type: Boolean, default: false },
+},
 
     profileImage: {
       type: String,
@@ -62,8 +121,23 @@ const userSchema = new mongoose.Schema(
       default: 0,
     },
 
+    monthlyTarget: {
+      type: Number,
+      default: 10,
+    },
+
     lastLogin: {
       type: Date,
+    },
+
+    resetPasswordToken: {
+      type: String,
+      default: null,
+    },
+
+    resetPasswordExpires: {
+      type: Date,
+      default: null,
     },
   },
   {

@@ -1,0 +1,395 @@
+.inbox-page{
+padding:25px;
+background:#f5f7fb;
+min-height:100vh;
+}
+
+.inbox-page .page-header{
+margin-bottom:25px;
+}
+
+.inbox-page .page-header h1{
+margin:0;
+font-size:22px;
+font-weight:700;
+color:#1e293b;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.inbox-header-icon.whatsapp{ color:#22c55e; }
+.inbox-header-icon.email{ color:#0ea577; }
+
+.inbox-page .page-header p{
+margin-top:6px;
+color:#64748b;
+font-size:13px;
+}
+
+.inbox-layout{
+display:grid;
+grid-template-columns:380px 1fr;
+gap:20px;
+align-items:start;
+}
+
+.inbox-connect-card,
+.inbox-messages-card{
+background:#fff;
+border-radius:14px;
+padding:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.inbox-connect-card h3,
+.inbox-messages-card h3{
+margin:0 0 8px;
+font-size:15px;
+color:#1e293b;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.connected-pill{
+display:inline-flex;
+align-items:center;
+gap:4px;
+background:#dcfce7;
+color:#15803d;
+padding:4px 12px;
+border-radius:30px;
+font-size:12px;
+font-weight:700;
+}
+
+.inbox-connect-subtitle{
+color:#64748b;
+font-size:13px;
+margin:0 0 20px;
+line-height:1.5;
+}
+
+.inbox-form{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.inbox-form .form-group{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.inbox-form label{
+font-size:13px;
+font-weight:600;
+color:#334155;
+}
+
+.inbox-form input{
+padding:10px 12px;
+border:1px solid #dbe4f0;
+border-radius:10px;
+font-size:14px;
+outline:none;
+}
+
+.inbox-form input:focus{
+border-color:#0ea577;
+box-shadow:0 0 0 4px rgba(14,165,119,.15);
+}
+
+.inbox-form .save-btn{
+background:linear-gradient(135deg,#0ea577,#22d3a8);
+color:#fff;
+border:none;
+padding:10px 18px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+}
+
+.inbox-form .save-btn:disabled{
+opacity:.6;
+cursor:not-allowed;
+}
+
+.inbox-messages-card{
+min-height:420px;
+display:flex;
+flex-direction:column;
+}
+
+.inbox-empty-state{
+flex:1;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#64748b;
+padding:30px;
+}
+
+.inbox-empty-icon{
+font-size:40px;
+margin-bottom:16px;
+opacity:.5;
+}
+
+.inbox-empty-icon.whatsapp{ color:#22c55e; }
+.inbox-empty-icon.email{ color:#0ea577; }
+
+.inbox-empty-state p{
+margin:4px 0;
+font-size:14px;
+font-weight:600;
+color:#334155;
+}
+
+.inbox-empty-sub{
+max-width:340px;
+font-weight:400 !important;
+color:#94a3b8 !important;
+font-size:13px !important;
+line-height:1.6;
+}
+
+[data-theme="dark"] .inbox-page{
+background:var(--dm-bg-page);
+}
+
+[data-theme="dark"] .inbox-connect-card,
+[data-theme="dark"] .inbox-messages-card{
+background:var(--dm-bg-card);
+border:1px solid var(--dm-border);
+}
+
+[data-theme="dark"] .inbox-connect-card h3,
+[data-theme="dark"] .inbox-messages-card h3,
+[data-theme="dark"] .inbox-empty-state p{
+color:var(--dm-text-primary);
+}
+
+[data-theme="dark"] .inbox-connect-subtitle,
+[data-theme="dark"] .inbox-empty-sub{
+color:var(--dm-text-secondary) !important;
+}
+
+@media(max-width:992px){
+
+.inbox-layout{
+grid-template-columns:1fr;
+}
+
+}
+
+/* ===============================
+   WhatsApp — QR + Conversations
+=============================== */
+
+.wa-qr-img{
+width:100%;
+max-width:220px;
+display:block;
+margin:0 auto 16px;
+border-radius:10px;
+border:1px solid #e2e8f0;
+padding:10px;
+background:#fff;
+}
+
+.wa-disconnect-btn{
+display:flex;
+align-items:center;
+gap:6px;
+background:#fee2e2;
+color:#dc2626;
+border:none;
+padding:9px 16px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+font-size:13px;
+margin-bottom:16px;
+}
+
+.wa-disconnect-btn:hover{
+background:#fecaca;
+}
+
+.wa-conversations-list{
+margin-top:20px;
+border-top:1px solid #eef2f7;
+padding-top:16px;
+max-height:360px;
+overflow-y:auto;
+}
+
+.wa-conversations-list h4{
+margin:0 0 10px;
+font-size:13px;
+color:#64748b;
+text-transform:uppercase;
+letter-spacing:.4px;
+}
+
+.wa-convo-item{
+padding:10px 12px;
+border-radius:10px;
+cursor:pointer;
+margin-bottom:4px;
+transition:.2s;
+}
+
+.wa-convo-item:hover{
+background:#f8fafc;
+}
+
+.wa-convo-item.active{
+background:#ecfdf5;
+}
+
+.wa-convo-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:13px;
+}
+
+.wa-convo-item p{
+margin:2px 0 0;
+font-size:12px;
+color:#64748b;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.wa-unread-badge{
+background:#22c55e;
+color:#fff;
+font-size:11px;
+font-weight:700;
+padding:1px 7px;
+border-radius:20px;
+}
+
+.wa-thread{
+flex:1;
+overflow-y:auto;
+padding:16px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.wa-bubble{
+max-width:65%;
+padding:9px 13px;
+border-radius:12px;
+font-size:13px;
+}
+
+.wa-bubble p{
+margin:0;
+}
+
+.wa-bubble strong{
+display:block;
+margin-bottom:4px;
+font-size:12px;
+}
+
+.wa-bubble small{
+display:block;
+margin-top:4px;
+font-size:10px;
+opacity:.7;
+}
+
+.wa-bubble.inbound{
+align-self:flex-start;
+background:#f1f5f9;
+color:#1e293b;
+}
+
+.wa-bubble.outbound{
+align-self:flex-end;
+background:#dcf8c6;
+color:#1e293b;
+}
+
+.wa-reply-form{
+display:flex;
+gap:10px;
+padding:14px;
+border-top:1px solid #eef2f7;
+}
+
+.wa-reply-form input{
+flex:1;
+padding:10px 14px;
+border:1px solid #dbe4f0;
+border-radius:20px;
+font-size:13px;
+outline:none;
+}
+
+.wa-reply-form button{
+width:38px;
+height:38px;
+border-radius:50%;
+background:#22c55e;
+color:#fff;
+border:none;
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:16px;
+}
+
+.wa-reply-form button:disabled{
+background:#94a3b8;
+cursor:not-allowed;
+}
+
+[data-theme="dark"] .wa-qr-img{
+background:#fff;
+}
+
+[data-theme="dark"] .wa-conversations-list{
+border-color:var(--dm-border);
+}
+
+[data-theme="dark"] .wa-convo-item:hover{
+background:var(--dm-bg-card-alt);
+}
+
+[data-theme="dark"] .wa-convo-item.active{
+background:rgba(34,197,94,.15);
+}
+
+[data-theme="dark"] .wa-bubble.inbound{
+background:var(--dm-bg-card-alt);
+color:var(--dm-text-primary);
+}
+
+[data-theme="dark"] .wa-bubble.outbound{
+background:rgba(34,197,94,.2);
+color:var(--dm-text-primary);
+}
+
+[data-theme="dark"] .wa-reply-form{
+border-color:var(--dm-border);
+}
+
+[data-theme="dark"] .wa-reply-form input{
+background:var(--dm-input-bg);
+color:var(--dm-text-primary);
+border-color:var(--dm-border);
+}

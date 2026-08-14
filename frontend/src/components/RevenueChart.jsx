@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import "./../styles/RevenueChart.css";
 
 import {
@@ -10,17 +12,41 @@ import {
   Tooltip,
 } from "recharts";
 
-const data = [
-  { month: "Jan", revenue: 4000 },
-  { month: "Feb", revenue: 3200 },
-  { month: "Mar", revenue: 5000 },
-  { month: "Apr", revenue: 4700 },
-  { month: "May", revenue: 6500 },
-  { month: "Jun", revenue: 7200 },
-  { month: "Jul", revenue: 8100 },
+import { getSalesReport } from "../services/reportService";
+
+const MONTH_NAMES = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
 ];
 
 function RevenueChart() {
+  const [data, setData] = useState([]);
+
+  const [totalRevenue, setTotalRevenue] = useState(0);
+
+  const loadRevenue = async () => {
+    try {
+      const res = await getSalesReport();
+
+      setTotalRevenue(res.report?.totalRevenue || 0);
+
+      setData(
+        (res.report?.monthlyRevenue || []).map((row) => ({
+          month: `${MONTH_NAMES[row._id.month - 1]} ${row._id.year}`,
+          revenue: row.revenue,
+        }))
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    (async () => {
+      await loadRevenue();
+    })();
+  }, []);
+
   return (
     <div className="revenue-chart">
 
@@ -29,15 +55,10 @@ function RevenueChart() {
           <h2>Revenue Analytics</h2>
           <p>Monthly Revenue Performance</p>
         </div>
-
-        <button className="chart-btn">
-          Monthly
-        </button>
       </div>
 
       <div className="revenue-info">
-        <h1>₹8,10,000</h1>
-        <span>↑ 18.4% this month</span>
+        <h1>₹{totalRevenue.toLocaleString("en-IN")}</h1>
       </div>
 
       <ResponsiveContainer width="100%" height={300}>
@@ -48,7 +69,12 @@ function RevenueChart() {
 
           <YAxis />
 
-          <Tooltip />
+          <Tooltip
+            formatter={(value) => [
+              `₹${Number(value).toLocaleString("en-IN")}`,
+              "Revenue",
+            ]}
+          />
 
           <Line
             type="monotone"

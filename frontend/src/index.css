@@ -1,27 +1,135 @@
+/* ===========================
+   GLOBAL RESET
+=========================== */
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html,
 body,
 #root{
-  width:100%;
-  min-height:100vh;
+width:100%;
+min-height:100vh;
+scroll-behavior:smooth;
+overflow-x:hidden;
 }
+
+/* ===========================
+   BODY
+=========================== */
 
 body{
-  background:#f4f7fc;
-  font-family:Arial, Helvetica, sans-serif;
-  overflow-x:hidden;
+background:#f1f5f9;
+font-family:"Inter","Segoe UI",Arial,sans-serif;
+color:#1e293b;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
 }
+
+/* ===========================
+   LINKS
+=========================== */
 
 a{
-  text-decoration:none;
-  color:inherit;
+text-decoration:none;
+color:inherit;
+transition:.25s;
 }
 
+/* ===========================
+   BUTTONS
+=========================== */
+
 button{
-  font-family:inherit;
+font-family:inherit;
+cursor:pointer;
+border:none;
+outline:none;
+transition:.25s ease;
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+input,
+select,
+textarea{
+font-family:inherit;
+font-size:15px;
+outline:none;
+transition:.25s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+outline:none;
+}
+
+/* ===========================
+   IMAGES
+=========================== */
+
+img{
+max-width:100%;
+display:block;
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+width:9px;
+height:9px;
+}
+
+::-webkit-scrollbar-track{
+background:#e2e8f0;
+}
+
+::-webkit-scrollbar-thumb{
+background:#94a3b8;
+border-radius:50px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#64748b;
+}
+
+/* ===========================
+   TEXT SELECTION
+=========================== */
+
+::selection{
+background:#2563eb;
+color:white;
+}
+
+/* ===========================
+   SMOOTH ANIMATION
+=========================== */
+
+*{
+transition:
+background-color .25s ease,
+color .25s ease,
+border-color .25s ease,
+box-shadow .25s ease;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+body{
+font-size:14px;
+}
+
 }

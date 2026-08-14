@@ -1,0 +1,154 @@
+.followups-page{
+padding:25px;
+background:#f5f7fb;
+min-height:100vh;
+}
+
+.followups-page .page-header{
+margin-bottom:20px;
+}
+
+.followups-page .page-header h1{
+margin:0;
+font-size:22px;
+font-weight:700;
+color:#1e293b;
+}
+
+.followups-page .page-header p{
+margin-top:6px;
+color:#64748b;
+font-size:13px;
+}
+
+.followup-section-title{
+display:flex;
+align-items:center;
+gap:8px;
+font-weight:700;
+font-size:15px;
+margin:24px 0 14px;
+}
+
+.followup-section-title.overdue{
+color:#dc2626;
+}
+
+.followup-section-title.upcoming{
+color:#0ea577;
+}
+
+.followup-empty{
+display:flex;
+align-items:center;
+gap:8px;
+color:#94a3b8;
+padding:16px 20px;
+background:#fff;
+border-radius:12px;
+font-size:14px;
+}
+
+.followup-list{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.followup-row{
+background:#fff;
+border-radius:14px;
+padding:14px 16px;
+box-shadow:0 6px 18px rgba(0,0,0,.06);
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:16px;
+cursor:pointer;
+transition:.2s;
+}
+
+.followup-row:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 25px rgba(14,165,119,.15);
+}
+
+.followup-main h4{
+margin:0;
+font-size:13px;
+color:#1e293b;
+}
+
+.followup-phone{
+font-size:13px;
+color:#64748b;
+}
+
+.followup-meta{
+display:flex;
+flex-direction:column;
+gap:4px;
+align-items:flex-start;
+}
+
+.followup-status{
+background:#ede9fe;
+color:#0ea577;
+padding:3px 12px;
+border-radius:20px;
+font-size:11px;
+font-weight:700;
+}
+
+.followup-assignee{
+color:#94a3b8;
+font-size:12px;
+}
+
+.followup-date{
+font-weight:700;
+color:#334155;
+font-size:13px;
+white-space:nowrap;
+}
+
+[data-theme="dark"] .followups-page{
+background:var(--dm-bg-page);
+}
+
+[data-theme="dark"] .followup-empty{
+background:var(--dm-bg-card);
+color:var(--dm-text-secondary);
+}
+
+[data-theme="dark"] .followup-row{
+background:var(--dm-bg-card);
+border:1px solid var(--dm-border);
+}
+
+[data-theme="dark"] .followup-main h4{
+color:var(--dm-text-primary);
+}
+
+[data-theme="dark"] .followup-phone,
+[data-theme="dark"] .followup-assignee{
+color:var(--dm-text-secondary);
+}
+
+[data-theme="dark"] .followup-date{
+color:var(--dm-text-primary);
+}
+
+[data-theme="dark"] .followup-status{
+background:rgba(34,211,168,.2);
+color:#a7f3d9;
+}
+
+@media(max-width:768px){
+
+.followup-row{
+flex-direction:column;
+align-items:flex-start;
+}
+
+}

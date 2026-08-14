@@ -1,53 +1,60 @@
+import { useEffect, useState } from "react";
+
 import "../styles/TopAgents.css";
 
-const agents = [
-  {
-    id: 1,
-    name: "Rahul Sharma",
-    deals: "₹2,50,000",
-    performance: "98%",
-  },
-  {
-    id: 2,
-    name: "Mohit Kumar",
-    deals: "₹1,90,000",
-    performance: "92%",
-  },
-  {
-    id: 3,
-    name: "Aman Singh",
-    deals: "₹1,45,000",
-    performance: "87%",
-  },
-];
+import { getAgentReport } from "../services/reportService";
 
 function TopAgents() {
+  const [agents, setAgents] = useState([]);
+
+  const loadAgents = async () => {
+    try {
+      const res = await getAgentReport();
+
+      setAgents((res.agents || []).slice(0, 5));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    (async () => {
+      await loadAgents();
+    })();
+  }, []);
+
   return (
     <div className="top-agents">
 
       <div className="agents-header">
         <h2>Top Agents</h2>
-        <span>This Month</span>
+        <span>By Revenue</span>
       </div>
 
-      {agents.map((agent) => (
-        <div className="agent-card" key={agent.id}>
+      {agents.length === 0 ? (
+        <p style={{ textAlign: "center", color: "#64748b" }}>
+          No Agents Found
+        </p>
+      ) : (
+        agents.map((agent) => (
+          <div className="agent-card" key={agent._id}>
 
-          <div className="agent-avatar">
-            {agent.name.charAt(0)}
+            <div className="agent-avatar">
+              {agent.fullName?.charAt(0)}
+            </div>
+
+            <div className="agent-info">
+              <h4>{agent.fullName}</h4>
+              <p>₹{(agent.revenue || 0).toLocaleString("en-IN")}</p>
+            </div>
+
+            <span className="performance">
+              {agent.closedWon} Won
+            </span>
+
           </div>
-
-          <div className="agent-info">
-            <h4>{agent.name}</h4>
-            <p>{agent.deals}</p>
-          </div>
-
-          <span className="performance">
-            {agent.performance}
-          </span>
-
-        </div>
-      ))}
+        ))
+      )}
 
     </div>
   );

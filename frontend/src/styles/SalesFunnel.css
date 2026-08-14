@@ -1,21 +1,25 @@
 .sales-funnel{
     background:#fff;
-    border-radius:18px;
-    padding:22px;
+    border-radius:14px;
+    padding:16px;
     box-shadow:0 8px 25px rgba(15,23,42,.06);
     border:1px solid #eef2f7;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
 .funnel-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:22px;
+    margin-bottom:16px;
 }
 
 .funnel-header h2{
     margin:0;
-    font-size:20px;
+    font-size:17px;
     color:#0f172a;
 }
 
@@ -29,14 +33,14 @@
 }
 
 .funnel-item{
-    margin-bottom:18px;
+    margin-bottom:14px;
 }
 
 .funnel-top{
     display:flex;
     justify-content:space-between;
-    margin-bottom:8px;
-    font-size:14px;
+    margin-bottom:6px;
+    font-size:13px;
     font-weight:600;
     color:#334155;
 }

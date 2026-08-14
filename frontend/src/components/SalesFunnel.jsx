@@ -1,19 +1,64 @@
+import { useEffect, useState } from "react";
+
 import "../styles/SalesFunnel.css";
 
-const stages = [
-  { name: "Leads", count: 245, color: "#2563eb" },
-  { name: "Qualified", count: 180, color: "#10b981" },
-  { name: "Proposal", count: 95, color: "#f59e0b" },
-  { name: "Won", count: 58, color: "#8b5cf6" },
+import { getSalesReport } from "../services/reportService";
+
+const STAGE_ORDER = [
+  "New",
+  "Qualified",
+  "Proposal",
+  "Negotiation",
+  "Won",
 ];
 
+const STAGE_COLORS = {
+  New: "#2563eb",
+  Qualified: "#10b981",
+  Proposal: "#f59e0b",
+  Negotiation: "#8b5cf6",
+  Won: "#16a34a",
+};
+
 function SalesFunnel() {
+  const [stages, setStages] = useState([]);
+
+  const loadFunnel = async () => {
+    try {
+      const res = await getSalesReport();
+
+      const byStage = res.report?.dealsByStage || [];
+
+      const counts = Object.fromEntries(
+        byStage.map((row) => [row._id, row.count])
+      );
+
+      setStages(
+        STAGE_ORDER.map((name) => ({
+          name,
+          count: counts[name] || 0,
+          color: STAGE_COLORS[name],
+        }))
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    (async () => {
+      await loadFunnel();
+    })();
+  }, []);
+
+  const maxCount = Math.max(1, ...stages.map((s) => s.count));
+
   return (
     <div className="sales-funnel">
 
       <div className="funnel-header">
-        <h2>Sales Funnel</h2>
-        <span>This Month</span>
+        <h2>Deal Pipeline</h2>
+        <span>By Stage</span>
       </div>
 
       {stages.map((stage) => (
@@ -28,7 +73,7 @@ function SalesFunnel() {
             <div
               className="progress-fill"
               style={{
-                width: `${(stage.count / 245) * 100}%`,
+                width: `${(stage.count / maxCount) * 100}%`,
                 background: stage.color,
               }}
             ></div>

@@ -1,0 +1,232 @@
+.profile-page{
+padding:25px;
+background:#f5f7fb;
+min-height:100vh;
+}
+
+.profile-page .page-header{
+margin-bottom:18px;
+}
+
+.profile-page .page-header h1{
+margin:0;
+font-size:22px;
+font-weight:700;
+color:#1e293b;
+}
+
+.profile-page .page-header p{
+margin-top:6px;
+color:#64748b;
+font-size:13px;
+}
+
+.profile-hero{
+background:#fff;
+border-radius:14px;
+padding:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:16px;
+}
+
+.profile-hero-avatar{
+width:64px;
+height:64px;
+border-radius:50%;
+background:linear-gradient(135deg,#0ea577,#22d3a8);
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
+font-weight:700;
+flex-shrink:0;
+box-shadow:0 10px 30px rgba(14,165,119,.4);
+}
+
+.profile-hero-info h2{
+margin:0 0 6px;
+font-size:18px;
+color:#1e293b;
+}
+
+.profile-role-badge{
+display:inline-block;
+padding:4px 14px;
+border-radius:30px;
+font-size:12px;
+font-weight:700;
+text-transform:capitalize;
+background:#ede9fe;
+color:#0ea577;
+}
+
+.profile-hero-meta{
+margin-top:14px;
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+.profile-hero-meta span{
+display:flex;
+align-items:center;
+gap:6px;
+color:#64748b;
+font-size:14px;
+}
+
+.profile-stats-row{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:16px;
+margin-bottom:16px;
+}
+
+.profile-stat-card{
+background:#fff;
+border-radius:14px;
+padding:16px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.profile-stat-icon{
+font-size:20px;
+margin-bottom:6px;
+}
+
+.profile-stat-icon.purple{ color:#7c3aed; }
+.profile-stat-icon.blue{ color:#2563eb; }
+.profile-stat-icon.green{ color:#059669; }
+
+.profile-stat-card h2{
+margin:2px 0;
+font-size:23px;
+font-weight:800;
+color:#1e293b;
+}
+
+.profile-stat-card span{
+color:#64748b;
+font-size:13px;
+font-weight:600;
+}
+
+.profile-edit-card{
+background:#fff;
+border-radius:14px;
+padding:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+max-width:480px;
+}
+
+.profile-edit-card h3{
+margin:0 0 14px;
+font-size:16px;
+color:#1e293b;
+}
+
+.profile-form{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.profile-form .form-group{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.profile-form label{
+font-size:14px;
+font-weight:600;
+color:#334155;
+}
+
+.profile-form input{
+padding:10px 12px;
+border:1px solid #dbe4f0;
+border-radius:10px;
+font-size:13px;
+outline:none;
+}
+
+.profile-form input:disabled{
+background:#f1f5f9;
+color:#94a3b8;
+}
+
+.profile-form input:focus{
+border-color:#0ea577;
+box-shadow:0 0 0 4px rgba(14,165,119,.15);
+}
+
+.profile-form .save-btn{
+align-self:flex-start;
+background:linear-gradient(135deg,#0ea577,#22d3a8);
+color:#fff;
+border:none;
+padding:10px 18px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+
+.profile-form .save-btn:hover{
+box-shadow:0 10px 25px rgba(14,165,119,.4);
+}
+
+.profile-form .save-btn:disabled{
+opacity:.6;
+cursor:not-allowed;
+}
+
+[data-theme="dark"] .profile-page{
+background:var(--dm-bg-page);
+}
+
+[data-theme="dark"] .profile-hero,
+[data-theme="dark"] .profile-stat-card,
+[data-theme="dark"] .profile-edit-card{
+background:var(--dm-bg-card);
+border:1px solid var(--dm-border);
+}
+
+[data-theme="dark"] .profile-hero-info h2,
+[data-theme="dark"] .profile-stat-card h2,
+[data-theme="dark"] .profile-edit-card h3{
+color:var(--dm-text-primary);
+}
+
+[data-theme="dark"] .profile-hero-meta span,
+[data-theme="dark"] .profile-stat-card span{
+color:var(--dm-text-secondary);
+}
+
+[data-theme="dark"] .profile-role-badge{
+background:rgba(34,211,168,.2);
+color:#a7f3d9;
+}
+
+@media(max-width:768px){
+
+.profile-stats-row{
+grid-template-columns:1fr;
+}
+
+.profile-hero{
+flex-direction:column;
+text-align:center;
+}
+
+.profile-hero-meta{
+justify-content:center;
+}
+
+}

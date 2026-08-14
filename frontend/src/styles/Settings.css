@@ -1,0 +1,170 @@
+.settings-page{
+padding:25px;
+background:#f5f7fb;
+min-height:100vh;
+}
+
+.settings-page .page-header{
+margin-bottom:18px;
+}
+
+.settings-page .page-header h1{
+margin:0;
+font-size:22px;
+font-weight:700;
+color:#1e293b;
+}
+
+.settings-page .page-header p{
+margin-top:6px;
+color:#64748b;
+font-size:13px;
+}
+
+.settings-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+align-items:start;
+}
+
+.settings-card{
+background:#fff;
+padding:18px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.settings-card h2{
+margin:0 0 4px;
+font-size:17px;
+color:#1e293b;
+}
+
+.settings-card .subtitle{
+margin:0 0 16px;
+color:#64748b;
+font-size:12px;
+}
+
+.settings-avatar-row{
+display:flex;
+align-items:center;
+gap:14px;
+margin-bottom:18px;
+}
+
+.settings-avatar{
+width:50px;
+height:50px;
+border-radius:50%;
+background:#2563eb;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+font-size:20px;
+}
+
+.settings-avatar-row .name{
+font-size:15px;
+font-weight:700;
+color:#1e293b;
+}
+
+.settings-avatar-row .role{
+margin-top:4px;
+padding:4px 12px;
+border-radius:30px;
+font-size:12px;
+font-weight:700;
+text-transform:capitalize;
+display:inline-block;
+background:#ede9fe;
+color:#7c3aed;
+}
+
+.settings-form{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.settings-form .form-group{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.settings-form label{
+font-size:14px;
+font-weight:600;
+color:#334155;
+}
+
+.settings-form input{
+padding:10px 12px;
+border:1px solid #dbe4f0;
+border-radius:10px;
+font-size:13px;
+outline:none;
+transition:.3s;
+}
+
+.settings-form input:disabled{
+background:#f1f5f9;
+color:#94a3b8;
+}
+
+.settings-form input:focus{
+border-color:#2563eb;
+box-shadow:0 0 0 4px rgba(37,99,235,.15);
+}
+
+.settings-form .save-btn{
+align-self:flex-start;
+background:#2563eb;
+color:#fff;
+border:none;
+padding:10px 18px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+
+.settings-form .save-btn:hover{
+background:#1d4ed8;
+}
+
+.settings-form .save-btn:disabled{
+background:#93c5fd;
+cursor:not-allowed;
+}
+
+.integration-badge{
+padding:4px 12px;
+border-radius:30px;
+font-size:11px;
+font-weight:700;
+vertical-align:middle;
+}
+
+.integration-badge.connected{
+background:#dcfce7;
+color:#15803d;
+}
+
+.integration-badge.disconnected{
+background:#f1f5f9;
+color:#64748b;
+}
+
+@media(max-width:992px){
+
+.settings-grid{
+grid-template-columns:1fr;
+}
+
+}

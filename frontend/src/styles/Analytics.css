@@ -1,0 +1,21 @@
+.analytics-page{
+padding:25px;
+background:#f5f7fb;
+min-height:100vh;
+}
+
+.analytics-page .page-header{
+margin-bottom:25px;
+}
+
+.analytics-page .page-header h1{
+margin:0;
+font-size:30px;
+font-weight:700;
+color:#1e293b;
+}
+
+.analytics-page .page-header p{
+margin-top:6px;
+color:#64748b;
+}

@@ -2,65 +2,126 @@
     width:100%;
     min-width:0;
     background:#fff;
-    border-radius:18px;
-    padding:22px;
+    border-radius:20px;
+    padding:18px;
     border:1px solid #eef2f7;
-    box-shadow:0 8px 25px rgba(15,23,42,.06);
+    box-shadow:0 6px 16px rgba(15,23,42,.06);
     transition:.3s;
     overflow:hidden;
 }
 
 .stat-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(15,23,42,.12);
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px rgba(15,23,42,.12);
+}
+
+.stat-card.clickable{
+    cursor:pointer;
+}
+
+.stat-card.clickable:focus-visible{
+    outline:2px solid #2563eb;
+    outline-offset:2px;
 }
 
 .card-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:18px;
+    margin-bottom:12px;
 }
 
 .card-icon{
-    width:52px;
-    height:52px;
-    border-radius:14px;
+    width:38px;
+    height:38px;
+    border-radius:10px;
     background:#eff6ff;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:24px;
+    font-size:17px;
 }
 
 .growth{
     background:#dcfce7;
     color:#16a34a;
-    padding:5px 12px;
+    padding:4px 10px;
     border-radius:20px;
-    font-size:12px;
+    font-size:11px;
     font-weight:600;
+}
+
+.growth.down{
+    background:#fee2e2;
+    color:#dc2626;
 }
 
 .stat-card h2{
     margin:0;
-    font-size:32px;
+    font-size:23px;
     color:#0f172a;
 }
 
 .stat-card p{
-    margin-top:8px;
+    margin-top:5px;
     color:#64748b;
-    font-size:14px;
+    font-size:12px;
 }
 
 .card-footer{
-    margin-top:16px;
-    padding-top:14px;
+    margin-top:10px;
+    padding-top:10px;
     border-top:1px solid #edf2f7;
 }
 
 .card-footer span{
     color:#94a3b8;
-    font-size:13px;
+    font-size:12px;
+}
+
+/* ===============================
+   Gradient variants
+=============================== */
+
+.stat-card.grad-purple{ background:linear-gradient(135deg,#7c3aed,#a855f7); }
+.stat-card.grad-blue{ background:linear-gradient(135deg,#2563eb,#3b82f6); }
+.stat-card.grad-green{ background:linear-gradient(135deg,#059669,#10b981); }
+.stat-card.grad-orange{ background:linear-gradient(135deg,#ea580c,#f97316); }
+.stat-card.grad-pink{ background:linear-gradient(135deg,#db2777,#ec4899); }
+.stat-card.grad-cyan{ background:linear-gradient(135deg,#0891b2,#06b6d4); }
+.stat-card.grad-red{ background:linear-gradient(135deg,#dc2626,#ef4444); }
+.stat-card.grad-indigo{ background:linear-gradient(135deg,#4338ca,#6366f1); }
+.stat-card.grad-teal{ background:linear-gradient(135deg,#0d9488,#14b8a6); }
+.stat-card.grad-amber{ background:linear-gradient(135deg,#b45309,#f59e0b); }
+.stat-card.grad-violet{ background:linear-gradient(135deg,#6d28d9,#8b5cf6); }
+.stat-card.grad-rose{ background:linear-gradient(135deg,#be123c,#fb7185); }
+.stat-card.grad-sky{ background:linear-gradient(135deg,#0369a1,#38bdf8); }
+.stat-card.grad-emerald{ background:linear-gradient(135deg,#047857,#34d399); }
+
+.stat-card[class*="grad-"]{
+    border:none;
+}
+
+.stat-card[class*="grad-"] h2,
+.stat-card[class*="grad-"] p,
+.stat-card[class*="grad-"] .card-footer span{
+    color:#fff !important;
+}
+
+.stat-card[class*="grad-"] p{
+    opacity:.9;
+}
+
+.stat-card[class*="grad-"] .card-icon{
+    background:rgba(255,255,255,.2);
+    color:#fff;
+}
+
+.stat-card[class*="grad-"] .growth{
+    background:rgba(255,255,255,.25);
+    color:#fff;
+}
+
+.stat-card[class*="grad-"] .card-footer{
+    border-top-color:rgba(255,255,255,.25);
 }

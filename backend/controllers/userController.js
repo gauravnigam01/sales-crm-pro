@@ -1,17 +1,71 @@
 import User from "../models/User.js";
+import Lead from "../models/Lead.js";
+import {
+  PERMISSION_CATEGORIES,
+  ROLE_TEMPLATES,
+  getDefaultPermissions,
+} from "../config/permissions.js";
+import { getScopedUserIds } from "../utils/teamScope.js";
 
 // ===================================
 // Get All Users
+// (admin: everyone. manager: only their own team, so they can't browse
+// or act on people outside their authorized scope.)
 // ===================================
 
 export const getAllUsers = async (req, res) => {
   try {
-    const users = await User.find().select("-password");
+    const filter =
+      req.user.role === "manager"
+        ? { _id: { $in: await getScopedUserIds(req.user) } }
+        : {};
+
+    const users = await User.find(filter).select("-password");
 
     res.status(200).json({
       success: true,
       count: users.length,
       users,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+// ===================================
+// Get My Team (manager's own team members, with basic lead counts)
+// ===================================
+
+export const getMyTeam = async (req, res) => {
+  try {
+    const memberIds = (await getScopedUserIds(req.user)).filter(
+      (id) => id !== req.user._id.toString()
+    );
+
+    const members = await User.find({
+      _id: { $in: memberIds },
+    }).select("-password");
+
+    const membersWithStats = await Promise.all(
+      members.map(async (member) => {
+        const leadCount = await Lead.countDocuments({
+          assignedTo: member._id,
+        });
+
+        return {
+          ...member.toObject(),
+          leadCount,
+        };
+      })
+    );
+
+    res.status(200).json({
+      success: true,
+      count: membersWithStats.length,
+      members: membersWithStats,
     });
   } catch (error) {
     res.status(500).json({
@@ -56,6 +110,7 @@ export const createCaller = async (req, res) => {
       phone,
       password,
       role: "caller",
+      permissions: getDefaultPermissions("caller"),
     });
 
     res.status(201).json({
@@ -86,9 +141,13 @@ export const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
 
+    // password changes must go through the dedicated reset-password flow —
+    // findByIdAndUpdate bypasses the bcrypt pre-save hook and would store it in plaintext
+    const { password, ...safeUpdates } = req.body;
+
     const updatedUser = await User.findByIdAndUpdate(
       id,
-      req.body,
+      safeUpdates,
       {
         new: true,
         runValidators: true,
@@ -131,6 +190,271 @@ export const deleteUser = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "User Deleted Successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+// ===================================
+// Change User Role
+// ===================================
+
+export const changeUserRole = async (req, res) => {
+
+  try {
+
+    const { id } = req.params;
+
+    const { role } = req.body;
+
+    const user = await User.findById(id);
+
+    if (!user) {
+
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+
+    }
+
+    user.role = role;
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "User Role Updated Successfully",
+      user,
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+
+  }
+
+};
+// ===================================
+// Change User Status
+// ===================================
+
+export const changeUserStatus = async (req, res) => {
+
+  try {
+
+    const { id } = req.params;
+
+    const user = await User.findById(id);
+
+    if (!user) {
+
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+
+    }
+
+    user.status =
+      user.status === "active"
+        ? "inactive"
+        : "active";
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "User Status Updated Successfully",
+      user,
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+
+  }
+
+};
+
+// ===================================
+// Get Permission Categories + Templates
+// ===================================
+
+export const getPermissionMeta = async (req, res) => {
+  try {
+    res.status(200).json({
+      success: true,
+      categories: PERMISSION_CATEGORIES,
+      templates: ROLE_TEMPLATES,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+// ===================================
+// Get Single User's Permissions
+// ===================================
+
+export const getUserPermissions = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findById(id).select("fullName role permissions");
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      user,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+// ===================================
+// Update Single User's Permissions
+// ===================================
+
+export const updateUserPermissions = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const { permissions } = req.body;
+
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    user.permissions = {
+      ...user.permissions.toObject(),
+      ...permissions,
+    };
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Permissions Updated Successfully",
+      user,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+// ===================================
+// Apply Template To User
+// ===================================
+
+export const applyTemplateToUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const { templateName } = req.body;
+
+    const template = ROLE_TEMPLATES[templateName];
+
+    if (!template) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid Template",
+      });
+    }
+
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    user.permissions = template.permissions;
+
+    if (template.role) {
+      user.role = template.role;
+    }
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: `${templateName} Applied Successfully`,
+      user,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+// ===================================
+// Admin Reset Any User's Password
+// ===================================
+
+export const resetUserPassword = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const { newPassword } = req.body;
+
+    if (!newPassword || newPassword.length < 6) {
+      return res.status(400).json({
+        success: false,
+        message: "New Password Must Be At Least 6 Characters",
+      });
+    }
+
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    user.password = newPassword;
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: `Password Reset Successfully for ${user.fullName}`,
     });
   } catch (error) {
     res.status(500).json({

@@ -1,0 +1,183 @@
+.reports-page{
+padding:25px;
+background:#f5f7fb;
+min-height:100vh;
+}
+
+.reports-page .page-header{
+margin-bottom:18px;
+}
+
+.reports-page .page-header h1{
+margin:0;
+font-size:22px;
+font-weight:700;
+color:#1e293b;
+}
+
+.reports-page .page-header p{
+margin-top:6px;
+color:#64748b;
+font-size:13px;
+}
+
+.report-stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
+margin-bottom:18px;
+}
+
+.report-stats .stat-card{
+background:#fff;
+padding:16px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.report-stats .stat-card h2{
+margin:0;
+font-size:24px;
+color:#1e293b;
+}
+
+.report-stats .stat-card p{
+margin-top:6px;
+color:#64748b;
+font-size:13px;
+}
+
+.report-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+margin-bottom:18px;
+}
+
+.report-card{
+background:#fff;
+padding:16px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.report-card h2{
+margin:0 0 4px;
+font-size:17px;
+color:#1e293b;
+}
+
+.report-card .subtitle{
+margin:0 0 14px;
+color:#64748b;
+font-size:12px;
+}
+
+.agents-report-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.agents-report-table th{
+padding:10px;
+text-align:left;
+font-size:12px;
+font-weight:600;
+color:#64748b;
+border-bottom:2px solid #edf2f7;
+}
+
+.agents-report-table td{
+padding:10px;
+border-bottom:1px solid #edf2f7;
+font-size:13px;
+color:#334155;
+font-variant-numeric:tabular-nums;
+}
+
+.agents-report-table td.num,
+.agents-report-table th.num{
+text-align:right;
+}
+
+.agents-report-table tbody tr:hover{
+background:#f8fbff;
+}
+
+.agents-report-table .agent-name{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:600;
+color:#1e293b;
+}
+
+.agents-report-table .agent-avatar{
+width:28px;
+height:28px;
+border-radius:50%;
+background:#2563eb;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+font-size:14px;
+}
+
+.task-report-row{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:16px;
+}
+
+.task-report-row .stat-card{
+background:#fff;
+padding:16px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.task-report-row .stat-card h2{
+margin:0;
+font-size:24px;
+color:#1e293b;
+}
+
+.task-report-row .stat-card p{
+margin-top:6px;
+color:#64748b;
+font-size:13px;
+}
+
+.task-report-row .stat-card.overdue h2{
+color:#dc2626;
+}
+
+@media(max-width:992px){
+
+.report-stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+.report-grid{
+grid-template-columns:1fr;
+}
+
+.task-report-row{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.report-stats{
+grid-template-columns:1fr;
+}
+
+.task-report-row{
+grid-template-columns:1fr;
+}
+
+}
