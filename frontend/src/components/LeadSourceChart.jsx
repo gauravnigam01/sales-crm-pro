@@ -59,7 +59,7 @@ function LeadSourceChart() {
       </div>
 
       {data.length === 0 ? (
-        <p style={{ textAlign: "center", color: "#64748b" }}>
+        <p className="empty-text">
           No Lead Data Yet
         </p>
       ) : (

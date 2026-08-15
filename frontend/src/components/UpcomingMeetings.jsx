@@ -31,7 +31,7 @@ function UpcomingMeetings() {
       </div>
 
       {meetings.length === 0 ? (
-        <p style={{ textAlign: "center", color: "#64748b" }}>
+        <p className="empty-text">
           No Upcoming Meetings
         </p>
       ) : (

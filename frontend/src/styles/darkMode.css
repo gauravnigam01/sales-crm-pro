@@ -458,9 +458,27 @@ border-color:var(--dm-border);
 [data-theme="dark"] .brief-row,
 [data-theme="dark"] .event-detail-row,
 [data-theme="dark"] .apply-row,
-[data-theme="dark"] .target-row{
+[data-theme="dark"] .target-row,
+[data-theme="dark"] .status-breakdown-row{
 border-color:var(--dm-border) !important;
 color:var(--dm-text-primary) !important;
+}
+
+[data-theme="dark"] .leads-modal-heading,
+[data-theme="dark"] .status-breakdown-label,
+[data-theme="dark"] .lead-list-name{
+color:var(--dm-text-primary) !important;
+}
+
+[data-theme="dark"] .leads-modal-empty,
+[data-theme="dark"] .lead-list-status,
+[data-theme="dark"] .empty-text,
+[data-theme="dark"] .text-muted-badge{
+color:var(--dm-text-secondary) !important;
+}
+
+[data-theme="dark"] .lead-list-row:hover{
+background:var(--dm-bg-card-alt) !important;
 }
 
 [data-theme="dark"] .modal-content p,

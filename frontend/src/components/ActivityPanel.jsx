@@ -55,7 +55,7 @@ function ActivityPanel() {
       </div>
 
       {activities.length === 0 ? (
-        <p style={{ textAlign: "center", color: "#64748b" }}>
+        <p className="empty-text">
           No Recent Activity
         </p>
       ) : (

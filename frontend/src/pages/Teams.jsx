@@ -93,7 +93,7 @@ function Teams() {
         <h2>🏆 Leaderboard</h2>
 
         {leaderboard.length === 0 ? (
-          <p style={{ textAlign: "center", color: "#64748b" }}>
+          <p className="empty-text">
             No Team Members Found
           </p>
         ) : (

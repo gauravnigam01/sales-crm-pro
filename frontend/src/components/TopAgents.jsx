@@ -32,7 +32,7 @@ function TopAgents() {
       </div>
 
       {agents.length === 0 ? (
-        <p style={{ textAlign: "center", color: "#64748b" }}>
+        <p className="empty-text">
           No Agents Found
         </p>
       ) : (

@@ -442,7 +442,7 @@ function Tasks() {
 
                   ) : (
 
-                    <span style={{ color: "#94a3b8" }}>View Only</span>
+                    <span className="text-muted-badge">View Only</span>
 
                   )}
 

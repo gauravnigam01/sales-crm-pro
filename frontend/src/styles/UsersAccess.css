@@ -4,6 +4,61 @@ background:#f5f7fb;
 min-height:100vh;
 }
 
+/* ===============================
+   User Leads Modal
+=============================== */
+
+.leads-modal-heading{
+margin:0 0 12px;
+color:#334155;
+}
+
+.leads-modal-empty{
+color:#94a3b8;
+}
+
+.status-breakdown-row{
+display:flex;
+justify-content:space-between;
+padding:8px 0;
+border-bottom:1px solid #edf2f7;
+font-size:14px;
+}
+
+.status-breakdown-label{
+color:#334155;
+font-weight:600;
+}
+
+.status-breakdown-count{
+color:#2563eb;
+font-weight:700;
+}
+
+.lead-list-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 12px;
+border-radius:8px;
+cursor:pointer;
+transition:.2s;
+}
+
+.lead-list-row:hover{
+background:#f8fafc;
+}
+
+.lead-list-name{
+font-weight:600;
+color:#1e293b;
+}
+
+.lead-list-status{
+font-size:12px;
+color:#64748b;
+}
+
 .access-page .page-header{
 text-align:center;
 margin-bottom:20px;

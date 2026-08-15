@@ -30,6 +30,19 @@ color:#1e293b;
 }
 
 /* ===========================
+   Shared text utilities
+=========================== */
+
+.empty-text{
+text-align:center;
+color:#64748b;
+}
+
+.text-muted-badge{
+color:#94a3b8;
+}
+
+/* ===========================
    LINKS
 =========================== */
 
