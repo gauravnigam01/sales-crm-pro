@@ -18,6 +18,11 @@ import {
   MdWhatsapp,
   MdEmail,
   MdNotifications,
+  MdSchool,
+  MdPlaylistAdd,
+  MdHowToReg,
+  MdPayments,
+  MdViewModule,
 } from "react-icons/md";
 
 import { NavLink } from "react-router-dom";
@@ -152,6 +157,49 @@ function Sidebar({ open, onNavigate }) {
             </NavLink>
           </li>
         </ul>
+
+        {canViewManagerTier && (
+          <>
+            <p className="menu-title">COURSES</p>
+
+            <ul>
+              <li>
+                <NavLink to="/courses" onClick={onNavigate}>
+                  <MdSchool />
+                  All Courses
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/courses/add" onClick={onNavigate}>
+                  <MdPlaylistAdd />
+                  Add Course
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/courses/enrollments" onClick={onNavigate}>
+                  <MdHowToReg />
+                  Enrollments
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/courses/payments" onClick={onNavigate}>
+                  <MdPayments />
+                  Payments
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/courses/batches" onClick={onNavigate}>
+                  <MdViewModule />
+                  Batches
+                </NavLink>
+              </li>
+            </ul>
+          </>
+        )}
 
         <p className="menu-title">INBOX</p>
 

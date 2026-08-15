@@ -29,6 +29,10 @@ import whatsappRoutes from "./routes/whatsappRoutes.js";
 import { initWhatsApp } from "./services/whatsappService.js";
 import emailRoutes from "./routes/emailRoutes.js";
 import { resumeEmailConnection } from "./services/emailService.js";
+import courseRoutes from "./routes/courseRoutes.js";
+import batchRoutes from "./routes/batchRoutes.js";
+import enrollmentRoutes from "./routes/enrollmentRoutes.js";
+import paymentRoutes from "./routes/paymentRoutes.js";
 
 dotenv.config();
 
@@ -148,6 +152,10 @@ app.use("/api/teams", teamRoutes);
 app.use("/api/automation", automationRoutes);
 app.use("/api/whatsapp", whatsappRoutes);
 app.use("/api/email", emailRoutes);
+app.use("/api/courses", courseRoutes);
+app.use("/api/batches", batchRoutes);
+app.use("/api/enrollments", enrollmentRoutes);
+app.use("/api/payments", paymentRoutes);
 
 // =======================
 // Serve Frontend (production build, if present)

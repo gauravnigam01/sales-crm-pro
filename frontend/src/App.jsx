@@ -25,6 +25,11 @@ import Calls from "./pages/Calls";
 import WhatsappInbox from "./pages/WhatsappInbox";
 import EmailInbox from "./pages/EmailInbox";
 import NotFound from "./pages/NotFound";
+import Courses from "./pages/Courses";
+import AddCourse from "./pages/AddCourse";
+import Enrollments from "./pages/Enrollments";
+import Payments from "./pages/Payments";
+import Batches from "./pages/Batches";
 import { ThemeProvider } from "./context/ThemeProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -153,6 +158,46 @@ function App() {
        }
      />
      <Route path="/documents" element={<Documents />} />
+     <Route
+       path="/courses"
+       element={
+         <RequireRole roles={["admin", "manager"]}>
+           <Courses />
+         </RequireRole>
+       }
+     />
+     <Route
+       path="/courses/add"
+       element={
+         <RequireRole roles={["admin", "manager"]}>
+           <AddCourse />
+         </RequireRole>
+       }
+     />
+     <Route
+       path="/courses/enrollments"
+       element={
+         <RequireRole roles={["admin", "manager"]}>
+           <Enrollments />
+         </RequireRole>
+       }
+     />
+     <Route
+       path="/courses/payments"
+       element={
+         <RequireRole roles={["admin", "manager"]}>
+           <Payments />
+         </RequireRole>
+       }
+     />
+     <Route
+       path="/courses/batches"
+       element={
+         <RequireRole roles={["admin", "manager"]}>
+           <Batches />
+         </RequireRole>
+       }
+     />
      <Route path="/notifications" element={<Notifications />} />
      <Route path="/profile" element={<Profile />} />
      <Route path="/settings" element={<Settings />} />

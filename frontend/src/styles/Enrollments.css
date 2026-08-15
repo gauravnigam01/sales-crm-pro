@@ -1,0 +1,10 @@
+.course-stat-card.cancelled::before{ background:#dc2626; }
+.course-stat-card.cancelled .course-stat-icon{ background:linear-gradient(135deg,#dc2626,#ef4444); box-shadow:0 6px 14px rgba(220,38,38,.25); }
+.course-stat-card.cancelled.active{ border-color:#dc2626; box-shadow:0 0 0 3px rgba(220,38,38,.15); }
+
+.status.ongoing{ background:#dcfce7; color:#15803d; }
+
+.status.paid{ background:#dcfce7; color:#15803d; }
+.status.partial{ background:#fef3c7; color:#b45309; }
+.status.pending{ background:#fee2e2; color:#dc2626; }
+.status.cancelled{ background:#fee2e2; color:#dc2626; }
