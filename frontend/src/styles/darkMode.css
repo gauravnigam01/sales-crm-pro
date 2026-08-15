@@ -516,6 +516,16 @@ background:linear-gradient(135deg,var(--dm-accent-2),#065f46) !important;
 color:#fff !important;
 }
 
+/* Sticky last (Action) column needs its own opaque background to stay
+   readable while the table scrolls horizontally underneath it. */
+[data-theme="dark"] .lead-table th:last-child{
+background:#065f46 !important;
+}
+
+[data-theme="dark"] .lead-table td:last-child{
+background:var(--dm-bg-card) !important;
+}
+
 [data-theme="dark"] .modal-header,
 [data-theme="dark"] .modal h2,
 [data-theme="dark"] .notification-header{

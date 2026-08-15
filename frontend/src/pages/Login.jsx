@@ -44,6 +44,7 @@ function Login() {
 
   return (
     <div className="auth-page">
+      <div className="auth-shell">
       <div className="auth-brand">
         <div className="auth-brand-orb orb-1"></div>
         <div className="auth-brand-orb orb-2"></div>
@@ -142,6 +143,7 @@ function Login() {
             Need an account? Contact your admin.
           </p>
         </div>
+      </div>
       </div>
     </div>
   );

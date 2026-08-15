@@ -53,6 +53,7 @@ function ResetPassword() {
 
   return (
     <div className="auth-page">
+      <div className="auth-shell">
       <div className="auth-brand">
         <div className="auth-brand-orb orb-1"></div>
         <div className="auth-brand-orb orb-2"></div>
@@ -146,6 +147,7 @@ function ResetPassword() {
             Remembered your password? <Link to="/login">Back to Login</Link>
           </p>
         </div>
+      </div>
       </div>
     </div>
   );
