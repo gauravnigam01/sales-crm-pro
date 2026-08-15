@@ -449,8 +449,25 @@ border-color:var(--dm-border);
 [data-theme="dark"] .event-detail-row,
 [data-theme="dark"] .apply-row,
 [data-theme="dark"] .target-row{
-border-color:var(--dm-border);
-color:var(--dm-text-primary);
+border-color:var(--dm-border) !important;
+color:var(--dm-text-primary) !important;
+}
+
+[data-theme="dark"] .modal-content p,
+[data-theme="dark"] .timeline-item{
+background:var(--dm-bg-card-alt) !important;
+border-color:var(--dm-border) !important;
+color:var(--dm-text-primary) !important;
+}
+
+[data-theme="dark"] .modal-content p span,
+[data-theme="dark"] .timeline-action{
+color:var(--dm-text-primary) !important;
+}
+
+[data-theme="dark"] .timeline-user,
+[data-theme="dark"] .timeline-date{
+color:var(--dm-text-secondary) !important;
 }
 
 [data-theme="dark"] .brief-row .value,
