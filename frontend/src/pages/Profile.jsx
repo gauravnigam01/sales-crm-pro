@@ -73,7 +73,7 @@ function Profile() {
     <div className="profile-page">
       <div className="page-header">
         <h1>My Profile</h1>
-        <p>Apni profile details dekho aur update karo.</p>
+        <p>View and update your profile details.</p>
       </div>
 
       <div className="profile-hero glass-card">

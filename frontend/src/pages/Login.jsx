@@ -54,13 +54,13 @@ function Login() {
         </div>
 
         <h1>
-          Sales ko <span>automate</span> karo, <br />
-          leads ko waste mat karo.
+          <span>Automate</span> your sales, <br />
+          never lose a lead again.
         </h1>
 
         <p>
-          Sales CRM Pro — lead assignment, WhatsApp follow-ups, aur
-          real-time reporting sab ek jagah.
+          Sales CRM Pro — lead assignment, WhatsApp follow-ups, and
+          real-time reporting, all in one place.
         </p>
 
         <div className="auth-brand-features">
@@ -139,7 +139,7 @@ function Login() {
           </form>
 
           <p className="auth-footer-text">
-            Naya account chahiye? Apne admin se bolo.
+            Need an account? Contact your admin.
           </p>
         </div>
       </div>

@@ -15,7 +15,7 @@ function NotFound() {
       </div>
 
       <h1>404</h1>
-      <p>Ye page exist nahi karta ya move ho gaya hai.</p>
+      <p>This page doesn't exist or has been moved.</p>
 
       <button onClick={() => navigate("/dashboard")}>
         Back to Dashboard

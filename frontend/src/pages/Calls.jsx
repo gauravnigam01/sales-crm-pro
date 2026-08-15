@@ -28,7 +28,7 @@ function Calls() {
     <div className="calls-page">
       <div className="page-header">
         <h1>Calls</h1>
-        <p>Sabhi logged calls ka history — leads se real-time synced.</p>
+        <p>History of all logged calls — synced in real time from leads.</p>
       </div>
 
       <div className="calls-stat-row">
@@ -46,8 +46,8 @@ function Calls() {
           <div className="calls-empty-state">
             <MdPhoneCallback />
             <p>
-              Koi call log nahi hai abhi. Lead detail page se "Call Done"
-              quick action use karke calls yahan track hongi.
+              No call logs yet. Use the "Call Done" quick action on a
+              lead's detail page to track calls here.
             </p>
           </div>
         ) : (

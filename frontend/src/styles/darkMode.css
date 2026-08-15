@@ -70,6 +70,8 @@ box-shadow:0 0 18px rgba(34,211,168,.55), 0 0 40px rgba(14,165,119,.25);
 [data-theme="dark"] .tasks-page,
 [data-theme="dark"] .teams-page,
 [data-theme="dark"] .users-page,
+[data-theme="dark"] .courses-page,
+[data-theme="dark"] .add-course-page,
 [data-theme="dark"] .dashboard-wrapper{
 background:var(--dm-bg-page);
 }
@@ -132,6 +134,10 @@ color:var(--dm-text-primary) !important;
 [data-theme="dark"] .customer-stat-card,
 [data-theme="dark"] .calendar-stat-card,
 [data-theme="dark"] .lead-stat-card,
+[data-theme="dark"] .course-stat-card,
+[data-theme="dark"] .course-table-container,
+[data-theme="dark"] .add-course-card,
+[data-theme="dark"] .courses-toolbar,
 [data-theme="dark"] .agent-card,
 [data-theme="dark"] .deal-card,
 [data-theme="dark"] .meeting-card,
@@ -170,6 +176,7 @@ transition:box-shadow .25s ease;
 [data-theme="dark"] .lead-stat-card:hover,
 [data-theme="dark"] .customer-stat-card:hover,
 [data-theme="dark"] .calendar-stat-card:hover,
+[data-theme="dark"] .course-stat-card:hover,
 [data-theme="dark"] .deal-card:hover,
 [data-theme="dark"] .agent-card:hover,
 [data-theme="dark"] .team-card:hover,
@@ -249,13 +256,19 @@ color:var(--dm-text-primary) !important;
 color:var(--dm-text-secondary) !important;
 }
 
-[data-theme="dark"] .no-data{
+[data-theme="dark"] .no-data,
+[data-theme="dark"] .course-loading{
 color:var(--dm-text-secondary) !important;
 }
 
 /* ===============================
    Forms
 =============================== */
+
+[data-theme="dark"] label,
+[data-theme="dark"] .form-group label{
+color:var(--dm-text-primary) !important;
+}
 
 [data-theme="dark"] input,
 [data-theme="dark"] select,
@@ -267,6 +280,7 @@ border-color:var(--dm-border) !important;
 
 [data-theme="dark"] .leads-search-box,
 [data-theme="dark"] .customers-search-box,
+[data-theme="dark"] .courses-search-box,
 [data-theme="dark"] .filter-box{
 background:var(--dm-input-bg) !important;
 border-color:var(--dm-border) !important;
@@ -274,6 +288,7 @@ border-color:var(--dm-border) !important;
 
 [data-theme="dark"] .leads-search-box input,
 [data-theme="dark"] .customers-search-box input,
+[data-theme="dark"] .courses-search-box input,
 [data-theme="dark"] .filter-box select{
 background:transparent !important;
 color:var(--dm-text-primary) !important;

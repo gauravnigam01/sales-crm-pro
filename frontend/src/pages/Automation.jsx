@@ -40,12 +40,12 @@ const SOURCES = [
 ];
 
 const TRIGGER_LABELS = {
-  newLead: "Naya Lead Add Ho",
-  hotLead: "Lead Hot Bane",
+  newLead: "New Lead Added",
+  hotLead: "Lead Becomes Hot",
 };
 
 const ACTION_LABELS = {
-  whatsapp: "WhatsApp Bhejo",
+  whatsapp: "Send WhatsApp",
   managerAlert: "Manager Alert",
 };
 
@@ -307,7 +307,7 @@ function Automation() {
         <h1>
           <MdBolt /> Automation
         </h1>
-        <p>Leads ko automatically handle karo — assignment, alerts, WhatsApp.</p>
+        <p>Automatically handle leads — assignment, alerts, WhatsApp.</p>
       </div>
 
       {/* Stats */}
@@ -334,11 +334,11 @@ function Automation() {
       {/* How It Works */}
       <div className="how-it-works">
         <h3>
-          <MdBolt /> Kaise Kaam Karta Hai
+          <MdBolt /> How It Works
         </h3>
 
         <div className="flow-row">
-          <span className="flow-chip">Lead Aaya 👆</span>
+          <span className="flow-chip">Lead Comes In 👆</span>
           <span className="flow-arrow">&rarr;</span>
           <span className="flow-chip">Trigger 🎯</span>
           <span className="flow-arrow">&rarr;</span>
@@ -413,7 +413,7 @@ function Automation() {
             <label>Message Template (use {"{name}"} and {"{budget}"})</label>
             <textarea
               rows={2}
-              placeholder="Namaste {name} ji! ..."
+              placeholder="Hi {name}! ..."
               value={newAutomation.messageTemplate}
               onChange={(e) =>
                 setNewAutomation({
@@ -433,7 +433,7 @@ function Automation() {
       <div className="automation-cards-list">
         {settings.triggerRules.length === 0 && (
           <p className="empty-note">
-            Koi automation nahi hai abhi. "Add Automation" se naya banao.
+            No automations yet. Click "Add Automation" to create one.
           </p>
         )}
 

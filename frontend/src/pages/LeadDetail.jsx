@@ -166,7 +166,7 @@ function LeadDetail() {
 
   const handleAutoSendWA = async () => {
     const message = window.prompt(
-      "WhatsApp message bhejo:",
+      "Send WhatsApp message:",
       `Hi ${lead.customerName}, this is regarding your enquiry.`
     );
 
@@ -252,7 +252,7 @@ function LeadDetail() {
 
         {lead.metaLeadgenId && (
           <div className="meta-banner">
-            📘 Meta Lead Ads se aaya (leadgen_id: {lead.metaLeadgenId})
+            📘 Came from Meta Lead Ads (leadgen_id: {lead.metaLeadgenId})
           </div>
         )}
 
@@ -335,7 +335,7 @@ function LeadDetail() {
             className="bottom-action-btn"
             onClick={handleAutoSendWA}
             disabled={sendingWA}
-            title="Seedha connected WhatsApp number se message bhejo"
+            title="Send a message directly from the connected WhatsApp number"
           >
             🤖 {sendingWA ? "Sending..." : "Auto Send WA"}
           </button>

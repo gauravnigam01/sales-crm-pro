@@ -218,8 +218,7 @@ function Dashboard() {
 
   useEffect(() => {
     (async () => {
-      await loadStats();
-      await loadRecentLeads();
+      await Promise.all([loadStats(), loadRecentLeads()]);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [days, dashScope]);

@@ -63,12 +63,12 @@ function ResetPassword() {
         </div>
 
         <h1>
-          Naya password <span>set karo</span> <br />
-          aur wapas kaam pe lag jao.
+          <span>Set a new</span> password <br />
+          and get back to work.
         </h1>
 
         <p>
-          Ye link sirf 1 ghante ke liye valid hai, security ke liye.
+          For your security, this link is valid for only 1 hour.
         </p>
       </div>
 
@@ -83,7 +83,7 @@ function ResetPassword() {
             Set New Password
           </h2>
           <p className="auth-subtitle">
-            Apna naya password neeche daalo
+            Enter your new password below
           </p>
 
           <form className="auth-form" onSubmit={handleSubmit}>
@@ -143,7 +143,7 @@ function ResetPassword() {
           </form>
 
           <p className="auth-footer-text">
-            Yaad aa gaya? <Link to="/login">Back to Login</Link>
+            Remembered your password? <Link to="/login">Back to Login</Link>
           </p>
         </div>
       </div>

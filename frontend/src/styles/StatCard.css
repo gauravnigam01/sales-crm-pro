@@ -1,18 +1,19 @@
 .stat-card{
+    position:relative;
     width:100%;
     min-width:0;
     background:#fff;
     border-radius:20px;
-    padding:18px;
+    padding:20px;
     border:1px solid #eef2f7;
     box-shadow:0 6px 16px rgba(15,23,42,.06);
-    transition:.3s;
+    transition:transform .25s ease, box-shadow .25s ease;
     overflow:hidden;
 }
 
 .stat-card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 24px rgba(15,23,42,.12);
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(15,23,42,.14);
 }
 
 .stat-card.clickable{
@@ -28,18 +29,26 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:12px;
+    margin-bottom:16px;
+    position:relative;
+    z-index:1;
 }
 
 .card-icon{
-    width:38px;
-    height:38px;
-    border-radius:10px;
+    width:44px;
+    height:44px;
+    border-radius:13px;
     background:#eff6ff;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:17px;
+    font-size:19px;
+    flex-shrink:0;
+    transition:transform .25s ease;
+}
+
+.stat-card:hover .card-icon{
+    transform:scale(1.08) rotate(-4deg);
 }
 
 .growth{
@@ -48,7 +57,7 @@
     padding:4px 10px;
     border-radius:20px;
     font-size:11px;
-    font-weight:600;
+    font-weight:700;
 }
 
 .growth.down{
@@ -57,50 +66,86 @@
 }
 
 .stat-card h2{
+    position:relative;
+    z-index:1;
     margin:0;
-    font-size:23px;
+    font-size:26px;
+    font-weight:800;
     color:#0f172a;
+    letter-spacing:-.3px;
 }
 
 .stat-card p{
+    position:relative;
+    z-index:1;
     margin-top:5px;
     color:#64748b;
-    font-size:12px;
+    font-size:12.5px;
+    font-weight:500;
 }
 
 .card-footer{
-    margin-top:10px;
-    padding-top:10px;
+    position:relative;
+    z-index:1;
+    margin-top:14px;
+    padding-top:12px;
     border-top:1px solid #edf2f7;
 }
 
 .card-footer span{
     color:#94a3b8;
     font-size:12px;
+    font-weight:500;
+}
+
+.stat-card.clickable .card-footer span{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    transition:gap .2s ease;
+}
+
+.stat-card.clickable:hover .card-footer span{
+    gap:7px;
 }
 
 /* ===============================
-   Gradient variants
+   Gradient variants — richer, with a soft glow highlight
 =============================== */
-
-.stat-card.grad-purple{ background:linear-gradient(135deg,#7c3aed,#a855f7); }
-.stat-card.grad-blue{ background:linear-gradient(135deg,#2563eb,#3b82f6); }
-.stat-card.grad-green{ background:linear-gradient(135deg,#059669,#10b981); }
-.stat-card.grad-orange{ background:linear-gradient(135deg,#ea580c,#f97316); }
-.stat-card.grad-pink{ background:linear-gradient(135deg,#db2777,#ec4899); }
-.stat-card.grad-cyan{ background:linear-gradient(135deg,#0891b2,#06b6d4); }
-.stat-card.grad-red{ background:linear-gradient(135deg,#dc2626,#ef4444); }
-.stat-card.grad-indigo{ background:linear-gradient(135deg,#4338ca,#6366f1); }
-.stat-card.grad-teal{ background:linear-gradient(135deg,#0d9488,#14b8a6); }
-.stat-card.grad-amber{ background:linear-gradient(135deg,#b45309,#f59e0b); }
-.stat-card.grad-violet{ background:linear-gradient(135deg,#6d28d9,#8b5cf6); }
-.stat-card.grad-rose{ background:linear-gradient(135deg,#be123c,#fb7185); }
-.stat-card.grad-sky{ background:linear-gradient(135deg,#0369a1,#38bdf8); }
-.stat-card.grad-emerald{ background:linear-gradient(135deg,#047857,#34d399); }
 
 .stat-card[class*="grad-"]{
     border:none;
 }
+
+.stat-card[class*="grad-"]::before{
+    content:"";
+    position:absolute;
+    top:-40%;
+    right:-25%;
+    width:65%;
+    height:140%;
+    background:radial-gradient(circle, rgba(255,255,255,.22), transparent 70%);
+    pointer-events:none;
+}
+
+.stat-card[class*="grad-"]:hover{
+    box-shadow:0 16px 34px var(--grad-shadow, rgba(37,99,235,.35));
+}
+
+.stat-card.grad-purple{ background:linear-gradient(140deg,#7c3aed,#a855f7); --grad-shadow:rgba(124,58,237,.4); }
+.stat-card.grad-blue{ background:linear-gradient(140deg,#2563eb,#3b82f6); --grad-shadow:rgba(37,99,235,.4); }
+.stat-card.grad-green{ background:linear-gradient(140deg,#059669,#10b981); --grad-shadow:rgba(5,150,105,.4); }
+.stat-card.grad-orange{ background:linear-gradient(140deg,#ea580c,#f97316); --grad-shadow:rgba(234,88,12,.4); }
+.stat-card.grad-pink{ background:linear-gradient(140deg,#db2777,#ec4899); --grad-shadow:rgba(219,39,119,.4); }
+.stat-card.grad-cyan{ background:linear-gradient(140deg,#0891b2,#06b6d4); --grad-shadow:rgba(8,145,178,.4); }
+.stat-card.grad-red{ background:linear-gradient(140deg,#dc2626,#ef4444); --grad-shadow:rgba(220,38,38,.4); }
+.stat-card.grad-indigo{ background:linear-gradient(140deg,#4338ca,#6366f1); --grad-shadow:rgba(67,56,202,.4); }
+.stat-card.grad-teal{ background:linear-gradient(140deg,#0d9488,#14b8a6); --grad-shadow:rgba(13,148,136,.4); }
+.stat-card.grad-amber{ background:linear-gradient(140deg,#b45309,#f59e0b); --grad-shadow:rgba(180,83,9,.4); }
+.stat-card.grad-violet{ background:linear-gradient(140deg,#6d28d9,#8b5cf6); --grad-shadow:rgba(109,40,217,.4); }
+.stat-card.grad-rose{ background:linear-gradient(140deg,#be123c,#fb7185); --grad-shadow:rgba(190,18,60,.4); }
+.stat-card.grad-sky{ background:linear-gradient(140deg,#0369a1,#38bdf8); --grad-shadow:rgba(3,105,161,.4); }
+.stat-card.grad-emerald{ background:linear-gradient(140deg,#047857,#34d399); --grad-shadow:rgba(4,120,87,.4); }
 
 .stat-card[class*="grad-"] h2,
 .stat-card[class*="grad-"] p,
@@ -109,11 +154,12 @@
 }
 
 .stat-card[class*="grad-"] p{
-    opacity:.9;
+    opacity:.92;
 }
 
 .stat-card[class*="grad-"] .card-icon{
-    background:rgba(255,255,255,.2);
+    background:rgba(255,255,255,.22);
+    backdrop-filter:blur(6px);
     color:#fff;
 }
 

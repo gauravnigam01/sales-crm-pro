@@ -59,7 +59,7 @@ function Followups() {
     <div className="followups-page">
       <div className="page-header">
         <h1>Follow-ups</h1>
-        <p>Scheduled follow-ups — overdue aur upcoming ek jagah.</p>
+        <p>Scheduled follow-ups — overdue and upcoming, all in one place.</p>
       </div>
 
       {loading ? (
@@ -72,7 +72,7 @@ function Followups() {
 
           {overdue.length === 0 ? (
             <div className="followup-empty">
-              <MdEventAvailable /> Koi overdue follow-up nahi hai.
+              <MdEventAvailable /> No overdue follow-ups.
             </div>
           ) : (
             <div className="followup-list">{overdue.map(renderRow)}</div>
@@ -84,7 +84,7 @@ function Followups() {
 
           {upcoming.length === 0 ? (
             <div className="followup-empty">
-              <MdEventAvailable /> Koi upcoming follow-up schedule nahi hai.
+              <MdEventAvailable /> No upcoming follow-ups scheduled.
             </div>
           ) : (
             <div className="followup-list">{upcoming.map(renderRow)}</div>

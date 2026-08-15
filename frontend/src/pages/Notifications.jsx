@@ -86,7 +86,7 @@ function Notifications() {
     <div className="notifications-page">
       <div className="page-header">
         <h1>Notifications</h1>
-        <p>Saari real-time updates ek jagah.</p>
+        <p>All your real-time updates in one place.</p>
       </div>
 
       <div className="notif-filter-row">
@@ -110,7 +110,7 @@ function Notifications() {
         ) : filtered.length === 0 ? (
           <div className="notif-empty-state">
             <MdNotificationsNone />
-            <p>Koi notification nahi hai.</p>
+            <p>No notifications yet.</p>
           </div>
         ) : (
           filtered.map((item) => (

@@ -164,7 +164,7 @@ function WhatsappInbox() {
           <MdWhatsapp className="inbox-header-icon whatsapp" /> WhatsApp
           Inbox
         </h1>
-        <p>Real WhatsApp number connect karo aur seedha yahan se chat karo.</p>
+        <p>Connect a real WhatsApp number and chat directly from here.</p>
       </div>
 
       <div className="inbox-layout wa-layout">
@@ -193,8 +193,8 @@ function WhatsappInbox() {
           ) : status.status === "qr" && status.qr ? (
             <>
               <p className="inbox-connect-subtitle">
-                Apne phone se WhatsApp kholo → Linked Devices → Link a Device
-                → Ye QR scan karo.
+                Open WhatsApp on your phone → Linked Devices → Link a Device
+                → Scan this QR code.
               </p>
 
               <img src={status.qr} alt="WhatsApp QR Code" className="wa-qr-img" />
@@ -204,8 +204,8 @@ function WhatsappInbox() {
           ) : (
             <>
               <p className="inbox-connect-subtitle">
-                WhatsApp connect nahi hai. Connect karke QR code scan karo
-                apne business number se.
+                WhatsApp isn't connected. Connect and scan the QR code
+                with your business number.
               </p>
 
               {user?.role === "admin" ? (
@@ -218,7 +218,7 @@ function WhatsappInbox() {
                 </button>
               ) : (
                 <p className="inbox-empty-sub">
-                  Sirf Admin WhatsApp connect kar sakta hai.
+                  Only an Admin can connect WhatsApp.
                 </p>
               )}
             </>
@@ -228,7 +228,7 @@ function WhatsappInbox() {
             <h4>Conversations</h4>
 
             {conversations.length === 0 && (
-              <p className="inbox-empty-sub">Koi conversation nahi hai abhi.</p>
+              <p className="inbox-empty-sub">No conversations yet.</p>
             )}
 
             {conversations.map((c) => (
@@ -257,10 +257,9 @@ function WhatsappInbox() {
           {!activePhone ? (
             <div className="inbox-empty-state">
               <MdWhatsapp className="inbox-empty-icon whatsapp" />
-              <p>Koi conversation select karo</p>
+              <p>Select a conversation</p>
               <p className="inbox-empty-sub">
-                Left side se kisi conversation pe click karo message dekhne
-                ke liye.
+                Click a conversation on the left to view messages.
               </p>
             </div>
           ) : (

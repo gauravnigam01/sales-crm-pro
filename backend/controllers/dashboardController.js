@@ -66,52 +66,6 @@ export const getDashboardStats = async (req, res) => {
       createdAt: { $gte: prevCutoff, $lt: cutoff },
     };
 
-    // Lead Counts (current period)
-    const totalLeads = await Lead.countDocuments(currentPeriod);
-
-    const newLeads = await Lead.countDocuments({
-      ...currentPeriod,
-      status: "New",
-    });
-
-    const contactedLeads = await Lead.countDocuments({
-      ...currentPeriod,
-      status: "Contacted",
-    });
-
-    const interestedLeads = await Lead.countDocuments({
-      ...currentPeriod,
-      status: "Interested",
-    });
-
-    const closedWon = await Lead.countDocuments({
-      ...currentPeriod,
-      status: "Closed Won",
-    });
-
-    const closedLost = await Lead.countDocuments({
-      ...currentPeriod,
-      status: "Closed Lost",
-    });
-
-    const qualifiedLeads = await Lead.countDocuments({
-      ...currentPeriod,
-      status: "Qualified",
-    });
-
-    const followUpLeads = await Lead.countDocuments({
-      ...currentPeriod,
-      status: "Follow Up",
-    });
-
-    // Lead Counts (previous period, for growth)
-    const prevTotalLeads = await Lead.countDocuments(previousPeriod);
-
-    const prevClosedWon = await Lead.countDocuments({
-      ...previousPeriod,
-      status: "Closed Won",
-    });
-
     // Team headcount — not relevant to an individual caller's own view;
     // for a manager this counts only their own team's callers.
     const callerHeadcountFilter = { role: "caller" };
@@ -120,49 +74,68 @@ export const getDashboardStats = async (req, res) => {
       callerHeadcountFilter._id = { $in: scopeIds };
     }
 
-    const totalCallers = isCaller
-      ? 0
-      : await User.countDocuments(callerHeadcountFilter);
-
-    const activeCallers = isCaller
-      ? 0
-      : await User.countDocuments({ ...callerHeadcountFilter, status: "active" });
-
-    const inactiveCallers = isCaller
-      ? 0
-      : await User.countDocuments({ ...callerHeadcountFilter, status: "inactive" });
-
-    // Tasks / Meetings / Documents
-    const pendingTasks = await Task.countDocuments({
-      ...ownerFilter,
-      status: "Pending",
-    });
-
-    const upcomingMeetings = await Event.countDocuments({
-      ...(scopeIds
-        ? {
-            $or: [
-              { assignedTo: { $in: scopeIds } },
-              { createdBy: { $in: scopeIds } },
-            ],
-          }
-        : {}),
-      status: "Scheduled",
-      date: { $gte: new Date() },
-    });
-
-    const totalDocuments = await Document.countDocuments(
-      scopeIds ? { uploadedBy: { $in: scopeIds } } : {}
-    );
-
-    const totalCustomers = await Customer.countDocuments(ownerFilter);
-
-    // Revenue is tracked on the Customer record (set when a customer is
-    // converted/updated), not via the Deal pipeline's "Won" stage — that's
-    // where the real numbers live, so that's the source of truth here.
-    const revenueAgg = await Customer.aggregate([
-      { $match: ownerFilter },
-      { $group: { _id: null, total: { $sum: "$revenue" } } },
+    // All of these are independent reads — running them in parallel instead
+    // of one-by-one turns ~17 sequential round-trips to Atlas into one,
+    // which is most of what made the dashboard feel slow to load.
+    const [
+      totalLeads,
+      newLeads,
+      contactedLeads,
+      interestedLeads,
+      closedWon,
+      closedLost,
+      qualifiedLeads,
+      followUpLeads,
+      prevTotalLeads,
+      prevClosedWon,
+      totalCallers,
+      activeCallers,
+      inactiveCallers,
+      pendingTasks,
+      upcomingMeetings,
+      totalDocuments,
+      totalCustomers,
+      revenueAgg,
+    ] = await Promise.all([
+      Lead.countDocuments(currentPeriod),
+      Lead.countDocuments({ ...currentPeriod, status: "New" }),
+      Lead.countDocuments({ ...currentPeriod, status: "Contacted" }),
+      Lead.countDocuments({ ...currentPeriod, status: "Interested" }),
+      Lead.countDocuments({ ...currentPeriod, status: "Closed Won" }),
+      Lead.countDocuments({ ...currentPeriod, status: "Closed Lost" }),
+      Lead.countDocuments({ ...currentPeriod, status: "Qualified" }),
+      Lead.countDocuments({ ...currentPeriod, status: "Follow Up" }),
+      Lead.countDocuments(previousPeriod),
+      Lead.countDocuments({ ...previousPeriod, status: "Closed Won" }),
+      isCaller ? 0 : User.countDocuments(callerHeadcountFilter),
+      isCaller
+        ? 0
+        : User.countDocuments({ ...callerHeadcountFilter, status: "active" }),
+      isCaller
+        ? 0
+        : User.countDocuments({ ...callerHeadcountFilter, status: "inactive" }),
+      Task.countDocuments({ ...ownerFilter, status: "Pending" }),
+      Event.countDocuments({
+        ...(scopeIds
+          ? {
+              $or: [
+                { assignedTo: { $in: scopeIds } },
+                { createdBy: { $in: scopeIds } },
+              ],
+            }
+          : {}),
+        status: "Scheduled",
+        date: { $gte: new Date() },
+      }),
+      Document.countDocuments(scopeIds ? { uploadedBy: { $in: scopeIds } } : {}),
+      Customer.countDocuments(ownerFilter),
+      // Revenue is tracked on the Customer record (set when a customer is
+      // converted/updated), not via the Deal pipeline's "Won" stage — that's
+      // where the real numbers live, so that's the source of truth here.
+      Customer.aggregate([
+        { $match: ownerFilter },
+        { $group: { _id: null, total: { $sum: "$revenue" } } },
+      ]),
     ]);
 
     const totalRevenue = revenueAgg[0]?.total || 0;

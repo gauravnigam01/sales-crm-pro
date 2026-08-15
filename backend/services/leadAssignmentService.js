@@ -84,14 +84,14 @@ export const getAutomationSettings = async () => {
           trigger: "newLead",
           action: "whatsapp",
           messageTemplate:
-            "Namaste {name} ji! Inquiry receive hui. Agent aapko 30 min mein call karenge.",
+            "Hi {name}! We've received your inquiry. An agent will call you within 30 minutes.",
           active: true,
         },
         {
           name: "Hot Lead - Manager Alert",
           trigger: "hotLead",
           action: "managerAlert",
-          messageTemplate: "Hot Lead: {name} - turant call karo!",
+          messageTemplate: "Hot Lead: {name} - call immediately!",
           active: true,
         },
       ],

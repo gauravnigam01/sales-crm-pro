@@ -186,8 +186,8 @@ function EmailInbox() {
           <MdEmail className="inbox-header-icon email" /> Email Inbox
         </h1>
         <p>
-          Apna business email connect karo taaki leads ke saath email
-          conversations yahan sync ho.
+          Connect your business email so conversations with leads sync
+          here.
         </p>
       </div>
 
@@ -272,7 +272,7 @@ function EmailInbox() {
             </form>
           ) : (
             <p className="inbox-empty-sub">
-              Sirf Admin email connect kar sakta hai.
+              Only an Admin can connect email.
             </p>
           )}
 
@@ -280,7 +280,7 @@ function EmailInbox() {
             <h4>Conversations</h4>
 
             {conversations.length === 0 && (
-              <p className="inbox-empty-sub">Koi conversation nahi hai abhi.</p>
+              <p className="inbox-empty-sub">No conversations yet.</p>
             )}
 
             {conversations.map((c) => (
@@ -307,10 +307,9 @@ function EmailInbox() {
           {!activeContact ? (
             <div className="inbox-empty-state">
               <MdEmail className="inbox-empty-icon email" />
-              <p>Koi conversation select karo</p>
+              <p>Select a conversation</p>
               <p className="inbox-empty-sub">
-                Left side se kisi conversation pe click karo message dekhne
-                ke liye.
+                Click a conversation on the left to view messages.
               </p>
             </div>
           ) : (

@@ -47,13 +47,13 @@ function ForgotPassword() {
         </div>
 
         <h1>
-          Password bhool gaye? <br />
-          <span>Koi baat nahi.</span>
+          Forgot your password? <br />
+          <span>No worries.</span>
         </h1>
 
         <p>
-          Apna email daalo — hum aapke admin ko notify kar denge taaki wo
-          aapka password reset kar sake.
+          Enter your email — we'll notify your admin so they can reset
+          your password.
         </p>
       </div>
 
@@ -68,7 +68,7 @@ function ForgotPassword() {
             Reset Password
           </h2>
           <p className="auth-subtitle">
-            Email confirm karega ki request admin tak pahunch gayi
+            We'll confirm once your request reaches the admin
           </p>
 
           <form className="auth-form" onSubmit={handleSubmit}>
@@ -103,7 +103,7 @@ function ForgotPassword() {
           </form>
 
           <p className="auth-footer-text">
-            Yaad aa gaya? <Link to="/login">Back to Login</Link>
+            Remembered your password? <Link to="/login">Back to Login</Link>
           </p>
         </div>
       </div>
