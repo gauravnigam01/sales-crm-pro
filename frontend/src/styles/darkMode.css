@@ -394,8 +394,22 @@ color:var(--dm-text-primary);
 [data-theme="dark"] .notification-btn,
 [data-theme="dark"] .hamburger-btn,
 [data-theme="dark"] .profile:hover{
-background:var(--dm-bg-card-alt);
-color:var(--dm-text-primary);
+background:var(--dm-bg-card-alt) !important;
+color:var(--dm-text-primary) !important;
+}
+
+[data-theme="dark"] .export-btn{
+background:linear-gradient(135deg,var(--dm-accent),var(--dm-accent-2)) !important;
+color:#fff !important;
+}
+
+[data-theme="dark"] .leads-header{
+background:linear-gradient(135deg,var(--dm-accent-2),#065f46) !important;
+box-shadow:0 10px 28px rgba(14,165,119,.25) !important;
+}
+
+[data-theme="dark"] .leads-header p{
+color:#d1fae5 !important;
 }
 
 [data-theme="dark"] .hamburger-btn:hover{
