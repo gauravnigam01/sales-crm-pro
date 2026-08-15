@@ -270,6 +270,10 @@ background:var(--dm-bg-card);
 color:var(--dm-text-primary);
 }
 
+[data-theme="dark"] .modal-content{
+background:var(--dm-bg-page) !important;
+}
+
 [data-theme="dark"] .modal-header,
 [data-theme="dark"] .modal h2{
 background:var(--dm-bg-card-alt);
