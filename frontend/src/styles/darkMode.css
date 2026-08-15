@@ -72,7 +72,11 @@ box-shadow:0 0 18px rgba(34,211,168,.55), 0 0 40px rgba(14,165,119,.25);
 [data-theme="dark"] .users-page,
 [data-theme="dark"] .courses-page,
 [data-theme="dark"] .add-course-page,
-[data-theme="dark"] .pipeline-page,
+[data-theme="dark"] .calls-page,
+[data-theme="dark"] .followups-page,
+[data-theme="dark"] .inbox-page,
+[data-theme="dark"] .notifications-page,
+[data-theme="dark"] .profile-page,
 [data-theme="dark"] .dashboard-wrapper{
 background:var(--dm-bg-page);
 }
@@ -200,6 +204,8 @@ color:var(--dm-text-primary) !important;
 [data-theme="dark"] .course-table-container,
 [data-theme="dark"] .add-course-card,
 [data-theme="dark"] .courses-toolbar,
+[data-theme="dark"] .lead-table-container,
+[data-theme="dark"] .customer-table-container,
 [data-theme="dark"] .agent-card,
 [data-theme="dark"] .deal-card,
 [data-theme="dark"] .meeting-card,
@@ -501,9 +507,13 @@ color:var(--dm-text-primary);
 }
 
 [data-theme="dark"] .back-btn,
-[data-theme="dark"] .cancel-btn{
-background:var(--dm-bg-card-alt);
-color:var(--dm-text-primary);
+[data-theme="dark"] .cancel-btn,
+[data-theme="dark"] .btn-reset,
+[data-theme="dark"] .btn-edit,
+[data-theme="dark"] .btn-disable,
+[data-theme="dark"] .btn-enable,
+[data-theme="dark"] .btn-delete{
+background:var(--dm-bg-card-alt) !important;
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb{
