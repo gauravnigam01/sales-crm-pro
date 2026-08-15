@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  MdBolt,
   MdBarChart,
   MdGroups,
   MdWhatsapp,
@@ -13,6 +12,7 @@ import {
 } from "react-icons/md";
 
 import { loginUser } from "../services/authService";
+import NexumLogo from "../components/NexumLogo";
 import "../styles/Auth.css";
 
 function Login() {
@@ -51,7 +51,7 @@ function Login() {
         <div className="auth-brand-grid"></div>
 
         <div className="auth-brand-logo">
-          <MdBolt />
+          <NexumLogo size={30} />
         </div>
 
         <h1>
@@ -60,7 +60,7 @@ function Login() {
         </h1>
 
         <p>
-          Sales CRM Pro — lead assignment, WhatsApp follow-ups, and
+          Nexum CRM — lead assignment, WhatsApp follow-ups, and
           real-time reporting, all in one place.
         </p>
 
@@ -80,7 +80,7 @@ function Login() {
       <div className="auth-form-side">
         <div className="auth-card">
           <div className="auth-card-logo-mobile">
-            <MdBolt />
+            <NexumLogo size={28} />
           </div>
 
           <h2>Welcome back</h2>

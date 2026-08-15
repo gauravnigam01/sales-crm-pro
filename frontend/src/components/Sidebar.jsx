@@ -11,7 +11,6 @@ import {
   MdSettings,
   MdAdminPanelSettings,
   MdEmojiEvents,
-  MdBolt,
   MdFlashOn,
   MdSchedule,
   MdCall,
@@ -26,6 +25,8 @@ import {
 } from "react-icons/md";
 
 import { NavLink } from "react-router-dom";
+
+import NexumLogo from "./NexumLogo";
 
 import "../styles/Sidebar.css";
 
@@ -52,11 +53,11 @@ function Sidebar({ open, onNavigate }) {
       <div className={`sidebar ${open ? "open" : ""}`}>
         <div className="sidebar-header">
           <div className="logo">
-            <MdBolt />
+            <NexumLogo size={28} />
           </div>
 
           <div>
-            <h2>Sales CRM</h2>
+            <h2>Nexum CRM</h2>
             <p>Admin Panel</p>
           </div>
         </div>

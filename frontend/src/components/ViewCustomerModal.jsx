@@ -30,7 +30,7 @@ function ViewCustomerModal({
 
             <h2>Customer Profile</h2>
 
-            <p>Sales CRM Professional View</p>
+            <p>Nexum CRM Professional View</p>
 
           </div>
 

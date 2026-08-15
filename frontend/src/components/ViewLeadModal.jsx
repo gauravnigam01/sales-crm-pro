@@ -22,7 +22,7 @@ function ViewLeadModal({ lead, onClose }) {
         <div className="modal-header">
           <div>
             <h2>Lead Profile</h2>
-            <p>Sales CRM Professional View</p>
+            <p>Nexum CRM Professional View</p>
           </div>
           <button onClick={onClose}>✕</button>
         </div>

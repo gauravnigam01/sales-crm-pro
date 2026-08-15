@@ -18,7 +18,7 @@ function ViewCourseModal({ course, onClose }) {
         <div className="modal-header">
           <div>
             <h2>Course Details</h2>
-            <p>Sales CRM Course Profile</p>
+            <p>Nexum CRM Course Profile</p>
           </div>
           <button onClick={onClose}>✕</button>
         </div>

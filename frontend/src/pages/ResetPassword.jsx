@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
-  MdBolt,
   MdLockReset,
   MdLockOutline,
   MdVisibility,
@@ -11,6 +10,7 @@ import {
 } from "react-icons/md";
 
 import { resetPasswordWithToken } from "../services/authService";
+import NexumLogo from "../components/NexumLogo";
 import "../styles/Auth.css";
 
 function ResetPassword() {
@@ -60,7 +60,7 @@ function ResetPassword() {
         <div className="auth-brand-grid"></div>
 
         <div className="auth-brand-logo">
-          <MdBolt />
+          <NexumLogo size={30} />
         </div>
 
         <h1>
@@ -76,7 +76,7 @@ function ResetPassword() {
       <div className="auth-form-side">
         <div className="auth-card">
           <div className="auth-card-logo-mobile">
-            <MdBolt />
+            <NexumLogo size={28} />
           </div>
 
           <h2>

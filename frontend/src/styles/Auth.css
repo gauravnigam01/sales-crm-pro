@@ -147,10 +147,28 @@ display:flex;
 align-items:center;
 justify-content:center;
 padding:40px;
-background:#0f0f1c;
+position:relative;
+overflow:hidden;
+background:
+  radial-gradient(circle at 75% 15%, rgba(34,211,168,.16), transparent 45%),
+  radial-gradient(circle at 15% 85%, rgba(14,165,119,.14), transparent 50%),
+  #0f0f1c;
+}
+
+.auth-form-side::before{
+content:"";
+position:absolute;
+inset:0;
+background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+background-size:26px 26px;
+mask-image:radial-gradient(circle at 50% 40%, #000, transparent 75%);
+-webkit-mask-image:radial-gradient(circle at 50% 40%, #000, transparent 75%);
+pointer-events:none;
 }
 
 .auth-card{
+position:relative;
+z-index:1;
 width:100%;
 max-width:380px;
 background:rgba(26,26,46,.6);

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { MdBolt } from "react-icons/md";
 
+import NexumLogo from "../components/NexumLogo";
 import "../styles/NotFound.css";
 
 function NotFound() {
@@ -11,7 +11,7 @@ function NotFound() {
       <div className="notfound-glow"></div>
 
       <div className="notfound-icon">
-        <MdBolt />
+        <NexumLogo size={40} />
       </div>
 
       <h1>404</h1>
