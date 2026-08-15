@@ -72,8 +72,70 @@ box-shadow:0 0 18px rgba(34,211,168,.55), 0 0 40px rgba(14,165,119,.25);
 [data-theme="dark"] .users-page,
 [data-theme="dark"] .courses-page,
 [data-theme="dark"] .add-course-page,
+[data-theme="dark"] .pipeline-page,
 [data-theme="dark"] .dashboard-wrapper{
 background:var(--dm-bg-page);
+}
+
+/* ===============================
+   Pipeline
+=============================== */
+
+[data-theme="dark"] .pipeline-column{
+background:var(--dm-bg-card-alt) !important;
+}
+
+[data-theme="dark"] .pipeline-header h3{
+color:var(--dm-text-primary) !important;
+}
+
+/* ===============================
+   Calendar grid
+=============================== */
+
+[data-theme="dark"] .calendar-grid{
+background:var(--dm-bg-card) !important;
+}
+
+[data-theme="dark"] .calendar-day{
+background:transparent;
+}
+
+[data-theme="dark"] .calendar-day:hover{
+background:var(--dm-bg-card-alt) !important;
+}
+
+[data-theme="dark"] .calendar-day.weekend{
+background:rgba(255,255,255,.03) !important;
+}
+
+[data-theme="dark"] .calendar-day.weekend:hover{
+background:var(--dm-bg-card-alt) !important;
+}
+
+[data-theme="dark"] .day-number{
+color:var(--dm-text-primary) !important;
+}
+
+/* ===============================
+   Pagination
+=============================== */
+
+[data-theme="dark"] .pagination button,
+[data-theme="dark"] .tasks-page .pagination button{
+background:linear-gradient(135deg,var(--dm-accent),var(--dm-accent-2)) !important;
+color:#fff !important;
+}
+
+[data-theme="dark"] .pagination button:disabled,
+[data-theme="dark"] .tasks-page .pagination button:disabled{
+background:var(--dm-bg-card-alt) !important;
+color:var(--dm-text-muted) !important;
+}
+
+[data-theme="dark"] .pagination span,
+[data-theme="dark"] .tasks-page .pagination span{
+color:var(--dm-text-primary) !important;
 }
 
 [data-theme="dark"] .page-header h1,
