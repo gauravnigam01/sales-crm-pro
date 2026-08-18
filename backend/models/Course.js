@@ -18,6 +18,21 @@ const courseSchema = new mongoose.Schema(
       default: "",
     },
 
+    thumbnail: {
+      type: String,
+      default: "",
+    },
+
+    syllabus: {
+      type: [String],
+      default: [],
+    },
+
+    prerequisites: {
+      type: String,
+      default: "",
+    },
+
     duration: {
       type: String,
       default: "",

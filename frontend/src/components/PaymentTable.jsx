@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-import { deletePayment } from "../services/paymentService";
+import { deletePayment, updatePayment } from "../services/paymentService";
 import ConfirmDialog from "./ConfirmDialog";
 
 function PaymentTable({ payments, refreshPayments }) {
   const [deleteTarget, setDeleteTarget] = useState(null);
+  const [refundTarget, setRefundTarget] = useState(null);
 
   const confirmDelete = async () => {
     try {
@@ -18,6 +19,19 @@ function PaymentTable({ payments, refreshPayments }) {
     }
 
     setDeleteTarget(null);
+  };
+
+  const confirmRefund = async () => {
+    try {
+      await updatePayment(refundTarget._id, { status: "Refunded" });
+      toast.success("Payment Marked as Refunded");
+      refreshPayments();
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response?.data?.message || "Refund Failed");
+    }
+
+    setRefundTarget(null);
   };
 
   return (
@@ -75,6 +89,14 @@ function PaymentTable({ payments, refreshPayments }) {
                   </td>
                   <td>
                     <div className="action-buttons">
+                      {payment.status === "Success" && (
+                        <button
+                          className="edit-btn"
+                          onClick={() => setRefundTarget(payment)}
+                        >
+                          Refund
+                        </button>
+                      )}
                       <button
                         className="delete-btn"
                         onClick={() => setDeleteTarget(payment)}
@@ -96,6 +118,14 @@ function PaymentTable({ payments, refreshPayments }) {
         message="Are you sure you want to delete this payment record? The enrollment's paid amount will be adjusted."
         onConfirm={confirmDelete}
         onClose={() => setDeleteTarget(null)}
+      />
+
+      <ConfirmDialog
+        open={!!refundTarget}
+        title="Refund Payment"
+        message="Mark this payment as refunded? The enrollment's paid amount will be reduced accordingly."
+        onConfirm={confirmRefund}
+        onClose={() => setRefundTarget(null)}
       />
     </div>
   );

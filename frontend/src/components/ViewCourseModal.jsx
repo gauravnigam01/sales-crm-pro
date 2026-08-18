@@ -24,6 +24,17 @@ function ViewCourseModal({ course, onClose }) {
         </div>
 
         <div className="modal-content">
+          {course.thumbnail && (
+            <img
+              src={course.thumbnail}
+              alt={course.courseName}
+              className="course-thumbnail-preview"
+              onError={(e) => {
+                e.target.style.display = "none";
+              }}
+            />
+          )}
+
           <div className="customer-profile">
             <div className="customer-avatar">
               {course.courseName?.charAt(0).toUpperCase()}
@@ -163,7 +174,24 @@ function ViewCourseModal({ course, onClose }) {
             <div>
               <strong>Description:</strong> {course.description || "No description"}
             </div>
+
+            {course.prerequisites && (
+              <div>
+                <strong>Prerequisites:</strong> {course.prerequisites}
+              </div>
+            )}
           </div>
+
+          {course.syllabus?.length > 0 && (
+            <>
+              <h3 className="timeline-title">Syllabus</h3>
+              <ul className="course-syllabus-list">
+                {course.syllabus.map((topic, index) => (
+                  <li key={index}>{topic}</li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -93,6 +93,7 @@ function Payments() {
             <option value="Success">Success</option>
             <option value="Pending">Pending</option>
             <option value="Failed">Failed</option>
+            <option value="Refunded">Refunded</option>
           </select>
         </div>
       </div>

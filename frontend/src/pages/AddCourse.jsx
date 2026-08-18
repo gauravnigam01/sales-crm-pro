@@ -10,6 +10,9 @@ const emptyForm = {
   courseName: "",
   category: "",
   description: "",
+  thumbnail: "",
+  syllabus: "",
+  prerequisites: "",
   duration: "",
   mode: "Online",
   trainer: "",
@@ -56,6 +59,10 @@ function AddCourse() {
         installmentAvailable: formData.installmentAvailable === "Yes",
         installmentAmount: Number(formData.installmentAmount) || 0,
         totalSeats: Number(formData.totalSeats) || 0,
+        syllabus: formData.syllabus
+          .split("\n")
+          .map((line) => line.trim())
+          .filter(Boolean),
       });
 
       toast.success("Course Created Successfully");
@@ -108,6 +115,39 @@ function AddCourse() {
               onChange={handleChange}
               placeholder="Short description of the course"
               rows={3}
+            />
+          </div>
+
+          <div className="form-group span-2">
+            <label>Thumbnail Image URL</label>
+            <input
+              type="text"
+              name="thumbnail"
+              value={formData.thumbnail}
+              onChange={handleChange}
+              placeholder="https://... (shown on the course card and detail page)"
+            />
+          </div>
+
+          <div className="form-group span-2">
+            <label>Syllabus</label>
+            <textarea
+              name="syllabus"
+              value={formData.syllabus}
+              onChange={handleChange}
+              placeholder={"One topic per line, e.g.\nIntroduction to HTML & CSS\nJavaScript Fundamentals\nReact Basics"}
+              rows={4}
+            />
+          </div>
+
+          <div className="form-group span-2">
+            <label>Prerequisites</label>
+            <textarea
+              name="prerequisites"
+              value={formData.prerequisites}
+              onChange={handleChange}
+              placeholder="What should a student already know before joining?"
+              rows={2}
             />
           </div>
 

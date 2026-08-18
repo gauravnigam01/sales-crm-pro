@@ -54,12 +54,15 @@ connectDB();
 // X-Content-Type-Options, etc.) stay on.
 app.use(helmet({ contentSecurityPolicy: false }));
 
+// FRONTEND_ORIGIN can be a single origin or a comma-separated list, so one
+// deployment can serve both an HTTP and HTTPS hostname (or a custom domain
+// alongside the sslip.io one) without a source edit — just a .env change.
 const allowedOrigins = [
-  "https://16.16.200.52.sslip.io",
-  "http://ec2-16-16-200-52.eu-north-1.compute.amazonaws.com",
   "http://localhost:5173",
   "http://localhost:5174",
-  process.env.FRONTEND_ORIGIN,
+  ...(process.env.FRONTEND_ORIGIN
+    ? process.env.FRONTEND_ORIGIN.split(",").map((o) => o.trim())
+    : []),
 ].filter(Boolean);
 
 app.use(

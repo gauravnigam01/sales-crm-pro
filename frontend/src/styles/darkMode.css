@@ -307,6 +307,10 @@ color:var(--dm-text-primary);
 background:var(--dm-bg-page) !important;
 }
 
+[data-theme="dark"] .course-syllabus-list li{
+color:var(--dm-text-secondary) !important;
+}
+
 [data-theme="dark"] .modal-header,
 [data-theme="dark"] .modal h2{
 background:var(--dm-bg-card-alt);

@@ -9,6 +9,9 @@ function EditCourseModal({ course, onClose, onSuccess }) {
     courseName: "",
     category: "",
     description: "",
+    thumbnail: "",
+    syllabus: "",
+    prerequisites: "",
     duration: "",
     mode: "Online",
     trainer: "",
@@ -29,6 +32,9 @@ function EditCourseModal({ course, onClose, onSuccess }) {
           courseName: course.courseName || "",
           category: course.category || "",
           description: course.description || "",
+          thumbnail: course.thumbnail || "",
+          syllabus: (course.syllabus || []).join("\n"),
+          prerequisites: course.prerequisites || "",
           duration: course.duration || "",
           mode: course.mode || "Online",
           trainer: course.trainer || "",
@@ -62,6 +68,10 @@ function EditCourseModal({ course, onClose, onSuccess }) {
         installmentAvailable: formData.installmentAvailable === "Yes",
         installmentAmount: Number(formData.installmentAmount) || 0,
         totalSeats: Number(formData.totalSeats) || 0,
+        syllabus: formData.syllabus
+          .split("\n")
+          .map((line) => line.trim())
+          .filter(Boolean),
       });
 
       toast.success("Course Updated Successfully");
@@ -102,6 +112,30 @@ function EditCourseModal({ course, onClose, onSuccess }) {
             placeholder="Description"
             value={formData.description}
             onChange={handleChange}
+          />
+
+          <input
+            type="text"
+            name="thumbnail"
+            placeholder="Thumbnail Image URL"
+            value={formData.thumbnail}
+            onChange={handleChange}
+          />
+
+          <textarea
+            name="syllabus"
+            placeholder={"Syllabus — one topic per line"}
+            value={formData.syllabus}
+            onChange={handleChange}
+            rows={4}
+          />
+
+          <textarea
+            name="prerequisites"
+            placeholder="Prerequisites"
+            value={formData.prerequisites}
+            onChange={handleChange}
+            rows={2}
           />
 
           <input

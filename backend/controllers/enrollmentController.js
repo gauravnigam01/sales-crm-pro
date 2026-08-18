@@ -35,6 +35,20 @@ export const createEnrollment = async (req, res) => {
       });
     }
 
+    if (course.totalSeats > 0) {
+      const activeEnrollments = await Enrollment.countDocuments({
+        course: course._id,
+        enrollmentStatus: { $ne: "Cancelled" },
+      });
+
+      if (activeEnrollments >= course.totalSeats) {
+        return res.status(400).json({
+          success: false,
+          message: "This course is full — no seats available.",
+        });
+      }
+    }
+
     const enrollment = await Enrollment.create({
       ...req.body,
       totalFee:
