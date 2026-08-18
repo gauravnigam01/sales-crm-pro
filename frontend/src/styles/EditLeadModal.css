@@ -44,7 +44,7 @@ margin-top:10px;
 }
 
 .save-btn{
-background:#2563eb;
+background:#0ea577;
 color:#fff;
 border:none;
 padding:9px 16px;
@@ -54,11 +54,16 @@ cursor:pointer;
 }
 
 .cancel-btn{
-background:#ef4444;
-color:#fff;
-border:none;
+background:transparent;
+color:#0ea577;
+border:1.5px solid #0ea577;
 padding:9px 16px;
 border-radius:8px;
 font-size:13px;
 cursor:pointer;
+transition:.25s;
+}
+
+.cancel-btn:hover{
+background:rgba(14,165,119,.08);
 }

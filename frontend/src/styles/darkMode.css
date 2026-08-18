@@ -570,13 +570,22 @@ color:var(--dm-text-primary);
 }
 
 [data-theme="dark"] .back-btn,
-[data-theme="dark"] .cancel-btn,
 [data-theme="dark"] .btn-reset,
 [data-theme="dark"] .btn-edit,
 [data-theme="dark"] .btn-disable,
 [data-theme="dark"] .btn-enable,
 [data-theme="dark"] .btn-delete{
 background:var(--dm-bg-card-alt) !important;
+}
+
+[data-theme="dark"] .cancel-btn{
+background:transparent !important;
+color:var(--dm-accent) !important;
+border:1.5px solid var(--dm-accent) !important;
+}
+
+[data-theme="dark"] .cancel-btn:hover{
+background:rgba(34,211,168,.12) !important;
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb{

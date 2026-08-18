@@ -119,9 +119,9 @@ margin-top:5px;
 }
 
 .task-modal .cancel-btn{
-background:#e2e8f0;
-color:#334155;
-border:none;
+background:transparent;
+color:#0ea577;
+border:1.5px solid #0ea577;
 padding:10px 16px;
 border-radius:10px;
 cursor:pointer;
@@ -131,11 +131,11 @@ transition:.3s;
 }
 
 .task-modal .cancel-btn:hover{
-background:#cbd5e1;
+background:rgba(14,165,119,.08);
 }
 
 .task-modal .save-btn{
-background:#2563eb;
+background:#0ea577;
 color:#fff;
 border:none;
 padding:10px 18px;
@@ -147,11 +147,11 @@ transition:.3s;
 }
 
 .task-modal .save-btn:hover{
-background:#1d4ed8;
+background:#059669;
 }
 
 .task-modal .save-btn:disabled{
-background:#93c5fd;
+background:#86efac;
 cursor:not-allowed;
 }
 

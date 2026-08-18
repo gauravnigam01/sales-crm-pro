@@ -31,7 +31,7 @@ font-weight:600;
 }
 
 .status-breakdown-count{
-color:#2563eb;
+color:#0ea577;
 font-weight:700;
 }
 
@@ -101,7 +101,7 @@ transition:.2s;
 }
 
 .access-tabs button.active{
-background:#2563eb;
+background:#0ea577;
 color:#fff;
 }
 
@@ -135,8 +135,8 @@ flex-wrap:wrap;
 }
 
 .team-card.me{
-border-color:#2563eb;
-background:#f5f9ff;
+border-color:#0ea577;
+background:#f0fdf7;
 }
 
 .team-card.disabled{
@@ -148,7 +148,7 @@ opacity:.75;
 width:36px;
 height:36px;
 border-radius:50%;
-background:#2563eb;
+background:#0ea577;
 color:#fff;
 display:flex;
 align-items:center;
@@ -192,8 +192,8 @@ color:#dc2626;
 }
 
 .pill.you{
-background:#dbeafe;
-color:#2563eb;
+background:#d1fae5;
+color:#0ea577;
 }
 
 .pill.admin-crown{
@@ -224,7 +224,7 @@ overflow:hidden;
 
 .perm-progress-fill{
 height:100%;
-background:#2563eb;
+background:#0ea577;
 border-radius:10px;
 }
 
@@ -272,12 +272,12 @@ background:#f5f3ff;
 
 .btn-edit{
 background:#fff;
-color:#2563eb;
-border-color:#bfdbfe;
+color:#0ea577;
+border-color:#a7f3d0;
 }
 
 .btn-edit:hover{
-background:#eff6ff;
+background:#ecfdf5;
 }
 
 .btn-disable{
@@ -584,9 +584,9 @@ transition:.2s;
 }
 
 .apply-btn-group button.selected{
-border-color:#2563eb;
-color:#2563eb;
-background:#eff6ff;
+border-color:#0ea577;
+color:#0ea577;
+background:#ecfdf5;
 }
 
 /* ==============================

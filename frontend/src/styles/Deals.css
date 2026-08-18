@@ -44,7 +44,7 @@ Header
 
 .add-btn{
 
-    background:#2563eb;
+    background:#0ea577;
 
     color:#fff;
 
@@ -66,7 +66,7 @@ Header
 
 .add-btn:hover{
 
-    background:#1d4ed8;
+    background:#059669;
 
 }
 
@@ -145,7 +145,7 @@ Search
 
 .search-bar input:focus{
 
-    border-color:#2563eb;
+    border-color:#0ea577;
 
 }
 
@@ -171,7 +171,7 @@ Table
 
 .deals-table thead{
 
-    background:#2563eb;
+    background:#0ea577;
 
     color:#fff;
 
@@ -282,7 +282,7 @@ Buttons
 
     border:none;
 
-    background:#2563eb;
+    background:#0ea577;
 
     color:#fff;
 
@@ -300,7 +300,7 @@ Buttons
 
 .edit-btn:hover{
 
-    background:#1d4ed8;
+    background:#059669;
 
 }
 
@@ -349,7 +349,7 @@ Pagination
 
     border:none;
 
-    background:#2563eb;
+    background:#0ea577;
 
     color:#fff;
 
@@ -365,7 +365,7 @@ Pagination
 
 .pagination button:hover{
 
-    background:#1d4ed8;
+    background:#059669;
 
 }
 

@@ -73,8 +73,8 @@
 }
 
 .courses-search-box:focus-within{
-  border-color:#2563eb;
-  box-shadow:0 0 0 4px rgba(37,99,235,.12);
+  border-color:#0ea577;
+  box-shadow:0 0 0 4px rgba(14,165,119,.12);
 }
 
 /* ===================================
@@ -165,7 +165,7 @@
 .course-table{ width:100%; border-collapse:collapse; }
 
 .course-table thead{
-  background:linear-gradient(90deg,#2563eb,#1d4ed8);
+  background:linear-gradient(90deg,#0ea577,#22d3a8);
   color:#fff;
 }
 

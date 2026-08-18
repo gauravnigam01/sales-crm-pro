@@ -26,8 +26,8 @@
 }
 
 .chart-btn{
-    background:#eff6ff;
-    color:#2563eb;
+    background:#ecfdf5;
+    color:#0ea577;
     border:none;
     padding:9px 14px;
     border-radius:10px;
@@ -38,7 +38,7 @@
 }
 
 .chart-btn:hover{
-    background:#2563eb;
+    background:#0ea577;
     color:#fff;
 }
 

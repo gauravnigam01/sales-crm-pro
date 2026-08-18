@@ -70,9 +70,9 @@ margin-top:30px;
 
 .cancel-btn{
 
-background:#e2e8f0;
-color:#334155;
-border:none;
+background:transparent;
+color:#0ea577;
+border:1.5px solid #0ea577;
 padding:12px 24px;
 border-radius:10px;
 cursor:pointer;
@@ -83,7 +83,7 @@ transition:.3s;
 
 .cancel-btn:hover{
 
-background:#cbd5e1;
+background:rgba(14,165,119,.08);
 
 }
 
