@@ -79,6 +79,7 @@ export const getDashboardStats = async (req, res) => {
     // which is most of what made the dashboard feel slow to load.
     const [
       totalLeads,
+      periodLeads,
       newLeads,
       contactedLeads,
       interestedLeads,
@@ -97,6 +98,10 @@ export const getDashboardStats = async (req, res) => {
       totalCustomers,
       revenueAgg,
     ] = await Promise.all([
+      // The grand total — matches the count shown on the Leads page (no
+      // date restriction). The period-scoped count below exists only to
+      // drive the growth-percentage badge, not the displayed value.
+      Lead.countDocuments(ownerFilter),
       Lead.countDocuments(currentPeriod),
       Lead.countDocuments({ ...currentPeriod, status: "New" }),
       Lead.countDocuments({ ...currentPeriod, status: "Contacted" }),
@@ -160,7 +165,7 @@ export const getDashboardStats = async (req, res) => {
         totalCustomers,
         totalRevenue,
         growth: {
-          totalLeads: growthPercent(totalLeads, prevTotalLeads),
+          totalLeads: growthPercent(periodLeads, prevTotalLeads),
           closedWon: growthPercent(closedWon, prevClosedWon),
         },
       },
