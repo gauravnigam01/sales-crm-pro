@@ -25,24 +25,32 @@
     outline-offset:2px;
 }
 
-.card-header{
+.card-top{
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    margin-bottom:16px;
-    position:relative;
-    z-index:1;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:14px;
+}
+
+.card-title{
+    color:#64748b;
+    font-size:12.5px;
+    font-weight:600;
+    line-height:1.3;
+    padding-top:4px;
 }
 
 .card-icon{
-    width:44px;
-    height:44px;
-    border-radius:13px;
-    background:#eff6ff;
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    background:var(--stat-bg,#eff6ff);
+    color:var(--stat-fg,#2563eb);
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:19px;
+    font-size:18px;
     flex-shrink:0;
     transition:transform .25s ease;
 }
@@ -51,128 +59,60 @@
     transform:scale(1.08) rotate(-4deg);
 }
 
-.growth{
-    background:#dcfce7;
-    color:#16a34a;
-    padding:4px 10px;
-    border-radius:20px;
-    font-size:11px;
-    font-weight:700;
-}
-
-.growth.down{
-    background:#fee2e2;
-    color:#dc2626;
-}
-
-.stat-card h2{
-    position:relative;
-    z-index:1;
-    margin:0;
+.card-value{
     font-size:26px;
     font-weight:800;
     color:#0f172a;
     letter-spacing:-.3px;
+    line-height:1.2;
 }
 
-.stat-card p{
-    position:relative;
-    z-index:1;
-    margin-top:5px;
-    color:#64748b;
-    font-size:12.5px;
-    font-weight:500;
-}
-
-.card-footer{
-    position:relative;
-    z-index:1;
-    margin-top:14px;
-    padding-top:12px;
-    border-top:1px solid #edf2f7;
-}
-
-.card-footer span{
-    color:#94a3b8;
-    font-size:12px;
-    font-weight:500;
-}
-
-.stat-card.clickable .card-footer span{
-    display:inline-flex;
+.growth{
+    display:flex;
     align-items:center;
-    gap:4px;
-    transition:gap .2s ease;
+    gap:3px;
+    margin-top:6px;
+    font-size:12.5px;
+    font-weight:700;
+    color:#16a34a;
 }
 
-.stat-card.clickable:hover .card-footer span{
-    gap:7px;
+.growth svg{
+    font-size:13px;
+}
+
+.growth.down{
+    color:#dc2626;
+}
+
+.card-spark{
+    display:block;
+    width:100%;
+    height:32px;
+    margin-top:14px;
+}
+
+.card-spark path{
+    stroke:var(--stat-fg,#2563eb);
+    opacity:.55;
 }
 
 /* ===============================
-   Gradient variants — richer, with a soft glow highlight
+   Per-card accent palette — pastel icon chip + matching sparkline,
+   distinct per card (reads livelier than one repeated brand color).
 =============================== */
 
-.stat-card[class*="grad-"]{
-    border:none;
-}
-
-.stat-card[class*="grad-"]::before{
-    content:"";
-    position:absolute;
-    top:-40%;
-    right:-25%;
-    width:65%;
-    height:140%;
-    background:radial-gradient(circle, rgba(255,255,255,.22), transparent 70%);
-    pointer-events:none;
-}
-
-.stat-card[class*="grad-"]:hover{
-    box-shadow:0 16px 34px var(--grad-shadow, rgba(37,99,235,.35));
-}
-
-/* One consistent brand gradient across every stat card — a uniform,
-   cohesive look reads as more premium than a different color per card. */
-.stat-card.grad-purple,
-.stat-card.grad-blue,
-.stat-card.grad-green,
-.stat-card.grad-orange,
-.stat-card.grad-pink,
-.stat-card.grad-cyan,
-.stat-card.grad-red,
-.stat-card.grad-indigo,
-.stat-card.grad-teal,
-.stat-card.grad-amber,
-.stat-card.grad-violet,
-.stat-card.grad-rose,
-.stat-card.grad-sky,
-.stat-card.grad-emerald{
-    background:linear-gradient(140deg,#2563eb,#4f46e5);
-    --grad-shadow:rgba(37,99,235,.4);
-}
-
-.stat-card[class*="grad-"] h2,
-.stat-card[class*="grad-"] p,
-.stat-card[class*="grad-"] .card-footer span{
-    color:#fff !important;
-}
-
-.stat-card[class*="grad-"] p{
-    opacity:.92;
-}
-
-.stat-card[class*="grad-"] .card-icon{
-    background:rgba(255,255,255,.22);
-    backdrop-filter:blur(6px);
-    color:#fff;
-}
-
-.stat-card[class*="grad-"] .growth{
-    background:rgba(255,255,255,.25);
-    color:#fff;
-}
-
-.stat-card[class*="grad-"] .card-footer{
-    border-top-color:rgba(255,255,255,.25);
-}
+.stat-blue{    --stat-bg:#eff6ff; --stat-fg:#2563eb; }
+.stat-green{   --stat-bg:#ecfdf5; --stat-fg:#16a34a; }
+.stat-pink{    --stat-bg:#fdf2f8; --stat-fg:#db2777; }
+.stat-teal{    --stat-bg:#f0fdfa; --stat-fg:#0d9488; }
+.stat-violet{  --stat-bg:#f5f3ff; --stat-fg:#7c3aed; }
+.stat-rose{    --stat-bg:#fff1f2; --stat-fg:#e11d48; }
+.stat-amber{   --stat-bg:#fffbeb; --stat-fg:#d97706; }
+.stat-cyan{    --stat-bg:#ecfeff; --stat-fg:#0891b2; }
+.stat-emerald{ --stat-bg:#ecfdf5; --stat-fg:#059669; }
+.stat-indigo{  --stat-bg:#eef2ff; --stat-fg:#4f46e5; }
+.stat-sky{     --stat-bg:#f0f9ff; --stat-fg:#0284c7; }
+.stat-red{     --stat-bg:#fef2f2; --stat-fg:#dc2626; }
+.stat-purple{  --stat-bg:#faf5ff; --stat-fg:#9333ea; }
+.stat-orange{  --stat-bg:#fff7ed; --stat-fg:#ea580c; }

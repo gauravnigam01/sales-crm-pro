@@ -690,9 +690,28 @@ border-color:var(--dm-accent);
 outline-color:var(--dm-accent) !important;
 }
 
-[data-theme="dark"] .card-icon{
-background:rgba(34,211,168,.15) !important;
+[data-theme="dark"] .card-title{
+color:var(--dm-text-secondary) !important;
 }
+
+[data-theme="dark"] .card-value{
+color:var(--dm-text-primary) !important;
+}
+
+[data-theme="dark"] .stat-blue{    --stat-bg:rgba(37,99,235,.18);  --stat-fg:#60a5fa; }
+[data-theme="dark"] .stat-green{   --stat-bg:rgba(22,163,74,.18);  --stat-fg:#4ade80; }
+[data-theme="dark"] .stat-pink{    --stat-bg:rgba(219,39,119,.18); --stat-fg:#f472b6; }
+[data-theme="dark"] .stat-teal{    --stat-bg:rgba(13,148,136,.18); --stat-fg:#2dd4bf; }
+[data-theme="dark"] .stat-violet{  --stat-bg:rgba(124,58,237,.18); --stat-fg:#a78bfa; }
+[data-theme="dark"] .stat-rose{    --stat-bg:rgba(225,29,72,.18);  --stat-fg:#fb7185; }
+[data-theme="dark"] .stat-amber{   --stat-bg:rgba(217,119,6,.18);  --stat-fg:#fbbf24; }
+[data-theme="dark"] .stat-cyan{    --stat-bg:rgba(8,145,178,.18);  --stat-fg:#22d3ee; }
+[data-theme="dark"] .stat-emerald{ --stat-bg:rgba(5,150,105,.18);  --stat-fg:#34d399; }
+[data-theme="dark"] .stat-indigo{  --stat-bg:rgba(79,70,229,.18);  --stat-fg:#818cf8; }
+[data-theme="dark"] .stat-sky{     --stat-bg:rgba(2,132,199,.18);  --stat-fg:#38bdf8; }
+[data-theme="dark"] .stat-red{     --stat-bg:rgba(220,38,38,.18);  --stat-fg:#f87171; }
+[data-theme="dark"] .stat-purple{  --stat-bg:rgba(147,51,234,.18); --stat-fg:#c084fc; }
+[data-theme="dark"] .stat-orange{  --stat-bg:rgba(234,88,12,.18);  --stat-fg:#fb923c; }
 
 [data-theme="dark"] .flow-chip{
 background:var(--dm-bg-card-alt) !important;
