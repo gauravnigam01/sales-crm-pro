@@ -432,10 +432,22 @@ color:#fff;
 background:var(--dm-bg-card);
 }
 
-[data-theme="dark"] .notification,
+[data-theme="dark"] .notification-item,
 [data-theme="dark"] .notification-list,
 [data-theme="dark"] .icon-delete-btn{
 background:var(--dm-bg-card-alt) !important;
+}
+
+[data-theme="dark"] .notification-item{
+border-bottom-color:var(--dm-border) !important;
+}
+
+[data-theme="dark"] .notification-item:hover{
+background:rgba(34,211,168,.14) !important;
+}
+
+[data-theme="dark"] .notification-content small{
+color:var(--dm-text-muted) !important;
 }
 
 [data-theme="dark"] .leaderboard-card.rank-1{

@@ -20,10 +20,10 @@ transition:.3s;
 }
 
 .notification-btn:hover{
-background:#2563eb;
+background:#0ea577;
 color:white;
 transform:translateY(-2px);
-box-shadow:0 15px 30px rgba(37,99,235,.25);
+box-shadow:0 15px 30px rgba(14,165,119,.25);
 }
 
 .notification-btn svg{
@@ -75,7 +75,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:14px 18px;
-background:linear-gradient(135deg,#2563eb,#1d4ed8);
+background:linear-gradient(135deg,#0ea577,#22d3a8);
 color:white;
 }
 
@@ -107,7 +107,7 @@ border-bottom:1px solid #eef2f7;
 }
 
 .notification-item:hover{
-background:#eef4ff;
+background:#ecfdf5;
 }
 
 .notification-content{
@@ -149,7 +149,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 font-size:16px;
-background:#dbeafe;
+background:#d1fae5;
 }
 
 .notification-content h4{
@@ -179,7 +179,7 @@ width:100%;
 padding:10px;
 border:none;
 border-radius:10px;
-background:#2563eb;
+background:#0ea577;
 color:white;
 font-weight:600;
 font-size:13px;
@@ -188,7 +188,7 @@ transition:.3s;
 }
 
 .notification-footer button:hover{
-background:#1d4ed8;
+background:#059669;
 }
 
 .notification-list::-webkit-scrollbar{
