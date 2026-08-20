@@ -134,7 +134,7 @@ border-radius:50%;
 }
 
 .switch input:checked + .slider{
-background-color:#2563eb;
+background-color:#0ea577;
 }
 
 .switch input:checked + .slider:before{
@@ -186,7 +186,7 @@ font-size:14px;
 }
 
 .inline-form .save-btn{
-background:#2563eb;
+background:#0ea577;
 color:#fff;
 border:none;
 padding:9px 16px;
@@ -198,11 +198,11 @@ transition:.3s;
 }
 
 .inline-form .save-btn:hover{
-background:#1d4ed8;
+background:#059669;
 }
 
 .inline-form .save-btn:disabled{
-background:#93c5fd;
+background:#86efac;
 cursor:not-allowed;
 }
 
@@ -326,6 +326,21 @@ padding:18px;
 text-align:center;
 }
 
+.auto-stat-card.clickable{
+cursor:pointer;
+transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.auto-stat-card.clickable:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 22px rgba(15,23,42,.12);
+}
+
+.auto-stat-card.clickable:focus-visible{
+outline:2px solid #0ea577;
+outline-offset:2px;
+}
+
 .auto-stat-card.green{
 background:#d1fae5;
 }
@@ -427,7 +442,7 @@ color:#1e293b;
 display:flex;
 align-items:center;
 gap:6px;
-background:#2563eb;
+background:#0ea577;
 color:#fff;
 border:none;
 padding:9px 16px;
@@ -478,7 +493,7 @@ font-family:inherit;
 
 .automation-add-card .save-btn{
 align-self:flex-start;
-background:#2563eb;
+background:#0ea577;
 color:#fff;
 border:none;
 padding:9px 16px;
@@ -489,7 +504,7 @@ font-size:13px;
 }
 
 .automation-add-card .save-btn:disabled{
-background:#93c5fd;
+background:#86efac;
 cursor:not-allowed;
 }
 

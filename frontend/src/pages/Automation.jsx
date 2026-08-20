@@ -312,19 +312,42 @@ function Automation() {
 
       {/* Stats */}
       <div className="auto-stats-row">
-        <div className="auto-stat-card green">
+        <div
+          className="auto-stat-card green clickable"
+          role="button"
+          tabIndex={0}
+          onClick={() =>
+            document
+              .getElementById("smart-automations")
+              ?.scrollIntoView({ behavior: "smooth", block: "start" })
+          }
+        >
           <MdBolt className="auto-stat-icon" />
           <h2>{stats.activeRulesCount}</h2>
           <span>Active Rules</span>
         </div>
 
-        <div className="auto-stat-card blue">
+        <div
+          className="auto-stat-card blue clickable"
+          role="button"
+          tabIndex={0}
+          onClick={() =>
+            document
+              .getElementById("smart-automations")
+              ?.scrollIntoView({ behavior: "smooth", block: "start" })
+          }
+        >
           <MdRocketLaunch className="auto-stat-icon" />
           <h2>{stats.totalTriggered}</h2>
           <span>Total Triggered</span>
         </div>
 
-        <div className="auto-stat-card purple">
+        <div
+          className="auto-stat-card purple clickable"
+          role="button"
+          tabIndex={0}
+          onClick={() => navigate("/whatsapp-inbox")}
+        >
           <MdChatBubble className="auto-stat-icon" />
           <h2>{stats.waSentCount}</h2>
           <span>WA Sent</span>
@@ -351,7 +374,7 @@ function Automation() {
       </div>
 
       {/* Trigger Automations */}
-      <div className="section-header">
+      <div className="section-header" id="smart-automations">
         <h2>Smart Automations</h2>
         <button
           className="add-btn"
