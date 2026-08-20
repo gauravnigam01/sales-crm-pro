@@ -107,7 +107,7 @@ function LeadTable({ leads, refreshLeads }) {
                 <td>
                   <span
                     className={`status ${lead.status
-                      .toLowerCase()
+                      ?.toLowerCase()
                       .replace(/\s/g, "")}`}
                   >
                     {lead.status}
@@ -116,7 +116,7 @@ function LeadTable({ leads, refreshLeads }) {
 
                 <td>
                   <span
-                    className={`priority ${lead.priority.toLowerCase()}`}
+                    className={`priority ${lead.priority?.toLowerCase()}`}
                   >
                     {lead.priority}
                   </span>

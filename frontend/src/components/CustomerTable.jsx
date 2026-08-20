@@ -144,7 +144,7 @@ function CustomerTable({
 
                   <span
                     className={`status ${customer.status
-                      .toLowerCase()
+                      ?.toLowerCase()
                       .replace(/\s/g, "")}`}
                   >
                     {customer.status}
@@ -164,9 +164,7 @@ function CustomerTable({
 
                 <td>
 
-                  ₹
-                 ₹
-                {(customer.revenue || 0).toLocaleString("en-IN")}
+                  ₹{(customer.revenue || 0).toLocaleString("en-IN")}
 
                 </td>
 
